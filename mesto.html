@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="pages/index.css">
+</head>
+<body class="page">
+    <div class="content">
+        <header class="header">
+            <img class="header__logo" src="../mesto/images/logo.svg">
+        </header>
+        <main class="main">
+            <div class="line"></div>
+            <section class="profile">
+                <div class="profile__avatar">
+                    <img class="profile__image" src="../mesto/images/avatar.png">
+                </div>
+                <div class="profile__info">
+                    <div class="profile__info_header">
+                        <h1 class="profile__info_header_name">Жак-Ив Кусто</h1>
+                        <button class="profile__info_header_edit-button" type="submit"><img class="profile__info_header_edit-button-image" src="../mesto/images/EditButton.png"></button>
+
+                    </div>
+                    <div class="popup">
+                        <div class="popup__container">
+                            <h1 class="popup__title">Редактировать профиль</h1>
+                            <button class="popup__closeButton" type="submit">
+                                <img class="popup__closeButton_image" src="../mesto/images/CloseButton.png">
+                            </button>
+                            <input class="popup__data" type="text" name="name" value="Имя">
+                            <div class="popup__line"></div>
+                            <input class="popup__data" type="text" name="description" value="О себе">
+                            <div class="popup__line"></div>
+                            <button class="popup__buttonSave" type="submit">
+                                <p class="popup__buttonSave_text">Сохранить</p>
+                            </button>
+                            
+                        </div>
+                    </div>
+                    <h2 class="profile__info_description">Исследователь океана</h2>
+                </div>
+                <button class="profile__addButton" type="submit"><img class="profile__addButton_image" src="../mesto/images/AddButton.png"></button>
+                
+            </section>
+            <section class="cards">
+                <div class="cards__item">
+                    <img class="cards__item_image" src="../mesto/images/Karachaevsk1.png">
+                    <h1 class="cards__item_title">Карачаевск<img class="cards__item_like" src="../mesto/images/like.svg"></h1>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__item_image" src="../mesto/images/Elbrus.png">
+                    <h1 class="cards__item_title">Гора Эльбрус<img class="cards__item_like" src="../mesto/images/like.svg"></h1>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__item_image" src="../mesto/images/Dombai.png">
+                    <h1 class="cards__item_title">Домбай<img class="cards__item_like" src="../mesto/images/like.svg"></h1>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__item_image" src="../mesto/images/Elbrus1.png">
+                    <h1 class="cards__item_title">Гора Эльбрус<img class="cards__item_like" src="../mesto/images/like.svg"></h1>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__item_image" src="../mesto/images/Dombai1.png">
+                    <h1 class="cards__item_title">Домбай<img class="cards__item_like" src="../mesto/images/like.svg"></h1>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__item_image" src="../mesto/images/Karachaevsk1.png">
+                    <h1 class="cards__item_title">Карачаево-Черкессия<img class="cards__item_like" src="../mesto/images/like.svg"></h1>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            &copy; 2020 Mesto Russia
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

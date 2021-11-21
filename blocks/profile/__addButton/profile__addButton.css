@@ -1,0 +1,26 @@
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .profile__addButton{
+        border: 2px solid #FFFFFF;
+        background-color: black;
+        box-sizing: border-box;
+        border-radius: 2px;
+        height: 50px;
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .profile__addButton{
+        background-color: black;
+        padding: 0;
+        border: 2px solid #FFFFFF;
+        box-sizing: border-box;
+        border-radius: 2px;
+        margin: 0 0 0 auto;
+    }
+}
+
+.profile__addButton:hover{
+    opacity: 0.6;
+}

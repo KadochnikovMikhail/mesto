@@ -1,0 +1,25 @@
+
+.popup__buttonSave:hover{
+    opacity: 0.8;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .popup__buttonSave{
+        padding: 0;
+        border: none;
+        margin: 15px 22px 0;
+        background: #000000;
+        border-radius: 2px;
+        height: 50px;
+    }
+}
+
+@media screen and (min-width: 768px)  {
+    .popup__buttonSave{
+        padding: 0;
+        border: none;
+        margin: 18px 36px 0;
+        background: #000000;
+        border-radius: 2px;
+        height: 50px;
+    }
+}
