@@ -1,12 +1,11 @@
 .cards__item_title{
-    width: 246px;
+    width: 190px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    display: flex;
+    margin: 0;
     align-items: flex-end;
     justify-content: space-between;
-    margin: 25px 15px 31px 21px;
     font-family: Inter;
     font-style: normal;
     font-weight: 900;

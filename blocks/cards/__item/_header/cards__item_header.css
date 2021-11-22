@@ -1,0 +1,5 @@
+.cards__item_header{
+    display: flex;
+    flex-direction: row;
+    margin: 25px 15px 31px 21px;
+}

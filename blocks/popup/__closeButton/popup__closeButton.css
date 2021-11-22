@@ -1,12 +1,11 @@
 .popup__closeButton{
-    border: 1px solid red;
     background: none;
     border: none;
     width: 32px;
     height: 32px;
-    position: fixed;
-    right: 450px;
-    top: 240px;
+    position: absolute;
+    top: -40px;
+    right: -30px;
 }
 .popup__closeButton:hover{
     opacity: 0.6;

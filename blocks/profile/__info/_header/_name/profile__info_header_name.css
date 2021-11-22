@@ -10,6 +10,9 @@
         line-height: 33px;
         text-align: center;
         color: #FFFFFF;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }
 
@@ -23,6 +26,9 @@
         font-size: 32px;
         line-height: 38px;
         color: #FFFFFF;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }
 
@@ -36,5 +42,8 @@
         font-size: 42px;
         line-height: 48px;
         color: #FFFFFF;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }

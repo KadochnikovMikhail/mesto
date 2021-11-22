@@ -1,0 +1,9 @@
+.cards__item_like{
+    width: 22px;
+    height: 19px;
+    margin: 5px 5px 0 auto;
+}
+
+.cards__item_like:hover{
+    opacity: 0.5;
+}
