@@ -1,12 +1,27 @@
-.popup__closeButton{
-    background: none;
-    border: none;
-    width: 32px;
-    height: 32px;
-    position: absolute;
-    top: -40px;
-    right: -30px;
-}
+
 .popup__closeButton:hover{
     opacity: 0.6;
+}
+@media screen and (min-width: 320px) and (max-width: 767px) {
+    .popup__closeButton{
+        background: none;
+        border: none;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: -60px;
+        right: -30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .popup__closeButton{
+        background: none;
+        border: none;
+        width: 32px;
+        height: 32px;
+        position: absolute;
+        top: -70px;
+        right: -30px;
+    }
 }

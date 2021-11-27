@@ -3,7 +3,6 @@
     .popup__title{
         width: 330px;
         margin: 25px 22px 75px;
-        height: 22;
         font-family: Inter;
         font-style: normal;
         font-weight: 900;
@@ -17,7 +16,6 @@
     .popup__title{
         width: 330px;
         margin: 34px 64px 54px 36px;
-        height: 23;
         font-family: Inter;
         font-style: normal;
         font-weight: 900;

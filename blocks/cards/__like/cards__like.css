@@ -2,6 +2,9 @@
     width: 22px;
     height: 19px;
     margin: 5px 5px 0 auto;
+    padding: 0;
+    border: none;
+    background: none;
 }
 
 .cards__like:hover{

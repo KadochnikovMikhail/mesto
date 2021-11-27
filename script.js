@@ -10,7 +10,7 @@ const buttonSave = popup.querySelector('.popup__buttonSave');
 const formElement = popup.querySelector('.popup__container');
 
 function openPopup(){
-    popup.className = 'popup__opened';
+    popup.classList.add('popup_opened');
     nameInput.value = nameProfile.textContent;
     jobInput.value = job.textContent;
 }
@@ -18,9 +18,7 @@ function openPopup(){
 editButton.addEventListener('click', openPopup);
     
 function closePopup(){
-    nameInput.value = nameProfile.textContent;
-    jobInput.value = job.textContent;
-    popup.className = 'popup';
+    popup.classList.remove('popup_opened') ;
 }
 closeButton.addEventListener('click', closePopup);
 
