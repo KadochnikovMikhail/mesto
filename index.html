@@ -83,17 +83,17 @@
     </div>
     <div class="popup">
         <div class="popup__container">
+            <button class="popup__closebutton" type="button">
+                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+            </button>
             <form class="form" name="profileform">
-                <div class="popup__header">
-                    <h2 class="popup__title">Редактировать профиль</h2>
-                    <button class="popup__closebutton" type="button">
-                        <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
-                    </button>
+                <div class="form__header">
+                    <h2 class="form__title">Редактировать профиль</h2>
                 </div>
-                <input class="popup__data " id = "name" type="text" name="name" placeholder="Имя" required>
-                <input class="popup__data   " id = "job" type="text" name="description" placeholder="О себе" required>
-                <button class="popup__buttonsave" type="submit">
-                    <span class="popup__buttontext">Сохранить</span>
+                <input class="form__data " id = "name" type="text" name="name" placeholder="Имя" required>
+                <input class="form__data   " id = "job" type="text" name="description" placeholder="О себе" required>
+                <button class="form__buttonsave" type="submit">
+                    <span class="form__buttontext">Сохранить</span>
                 </button>
             </form>
         </div>

@@ -1,6 +1,6 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-    .popup__data{
+    .form__data{
         width: 238px;
         height: 14px;
         padding: 0 0 13px;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (min-width: 768px)  {
-    .popup__data{
+    .form__data{
         width: 358px;
         height: 14px;
         padding: 0 0 13px;

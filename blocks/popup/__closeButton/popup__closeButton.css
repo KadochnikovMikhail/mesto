@@ -9,7 +9,7 @@
         background: none;
         border: none;
         position: absolute;
-        top: -75px;
+        top: -45px;
         right: 20px;
         cursor: pointer;
     }
@@ -22,7 +22,7 @@
         width: 32px;
         height: 32px;
         position: absolute;
-        top: -70px;
+        top: -38px;
         right: -30px;
         cursor: pointer;
     }

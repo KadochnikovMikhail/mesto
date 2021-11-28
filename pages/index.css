@@ -30,13 +30,14 @@
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__container/popup__container.css);
-@import url(../blocks/popup/__title/popup__title.css);
-@import url(../blocks/popup/__data/popup__data.css);
-@import url(../blocks/popup/__buttonsave/popup__buttonsave.css);
-@import url(../blocks/popup/__buttonttext/popup__buttontext.css);
+
+@import url(../blocks/form/__title/form__title.css);
+@import url(../blocks/form/__data/form__data.css);
+@import url(../blocks/form/__buttonsave/form__buttonsave.css);
+@import url(../blocks/form/__buttonttext/form__buttontext.css);
 @import url(../blocks/popup/__closebutton/popup__closebutton.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
-@import url(../blocks/popup/__header/popup__header.css);
+
 
 
 
