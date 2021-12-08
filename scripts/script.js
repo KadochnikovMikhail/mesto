@@ -9,47 +9,107 @@ let jobInput = document.querySelector('#job');
 const buttonSave = popup.querySelector('.popup__buttonsave');
 const formElement = popup.querySelector('.popup__container');
 
-function openPopup(){
+function openPopup() {
     popup.classList.add('popup_opened');
     nameInput.value = nameProfile.textContent;
     jobInput.value = job.textContent;
 }
 
 editButton.addEventListener('click', openPopup);
-    
-function closePopup(){
-    popup.classList.remove('popup_opened') ;
+
+function closePopup() {
+    popup.classList.remove('popup_opened');
 }
 closeButton.addEventListener('click', closePopup);
 
-function formSubmitHandler (evt) {
-    evt.preventDefault(); 
+function formSubmitHandler(evt) {
+    evt.preventDefault();
 
     nameProfile.textContent = nameInput.value;
     job.textContent = jobInput.value;
     closePopup()
 }
 
-formElement.addEventListener('submit', formSubmitHandler); 
+formElement.addEventListener('submit', formSubmitHandler);
 
 
 const popupCards = document.querySelector('.popup-cards');
 const cards = document.querySelector('.cards');
 const addButton = profile.querySelector('.profile__addbutton');
-let titleInput = document.querySelector('#title');
-let linkInput = document.querySelector('#link');
-let cadrdTitle = cards.querySelector('.cards__title');
 const closeCardButton = popupCards.querySelector('.popup-cards__closebutton');
 
-function openCardPopup(){
+function openCardPopup() {
     popupCards.classList.add('popup-cards_opened');
-    //titleInput.value = cadrdTitle.textContent;
-    //linkInput.value = job.textContent;
 }
 
 addButton.addEventListener('click', openCardPopup);
 
-function closeCardPopup(){
-    popupCards.classList.remove('popup-cards_opened') ;
+function closeCardPopup() {
+    popupCards.classList.remove('popup-cards_opened');
 }
 closeCardButton.addEventListener('click', closeCardPopup);
+
+const initialCards = [
+    {
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+
+const listContainerEL = document.querySelector('.cards');
+const templateEL = document.querySelector('.template')
+
+let titleInput = document.querySelector('#title');
+let linkInput = document.querySelector('#link');
+
+const buttonCreateCard = document.querySelector('form__buttonsave')
+
+function render() {
+    const html = initialCards
+        .map((item, idx, arr) => {
+            return getItem(item)
+        })
+        
+    listContainerEL.append(...html)
+
+}
+
+function getItem(item) {
+    const newItem = templateEL.content.cloneNode(true)
+    const headerEl = newItem.querySelector('.cards__title')
+    headerEl.textContent = item.name
+
+    return newItem
+}
+
+function hendleAdd(){
+    const inputTitleText = titleInput.value
+    const listItem = getItem({name: inputTitleText})
+    listContainerEL.prepend(listItem)
+
+    titleInput.value = ''
+}
+
+buttonCreateCard.addEventListener('click', hendleAdd)
+
+render()

@@ -42,6 +42,7 @@
 @import url(../blocks/popup-cards/popup-cards.css);
 @import url(../blocks/popup-cards/__container/popup-cards__container.css);
 @import url(../blocks/popup-cards/__closebutton/popup-cards__closebutton.css);
+@import url(../blocks/popup-cards/_opened/popup-cards_opened.css);
 
 
 

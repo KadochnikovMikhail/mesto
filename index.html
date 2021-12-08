@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
   <link rel="stylesheet" href="pages/index.css">
+  <script src="scripts/script.js" defer></script>
 </head>
 <body class="page">
     <div class="content">
@@ -28,7 +29,7 @@
                 
             </section>
             <section class="cards">
-                <div class="cards__item">
+                <!--<div class="cards__item">
                     <img class="cards__image" alt="Карачаевск" src="./images/Karachaevsk1.png">
                     <div class="cards__header">
                         <h2 class="cards__title">Карачаевск</h2>
@@ -74,7 +75,7 @@
                         <h2 class="cards__title">Карачаево-Черкессия</h2>
                         <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
                     </div>
-                </div>
+                </div>_-->
             </section>
         </main>
         <footer class="footer">
@@ -116,6 +117,15 @@
             </form>
         </div>
     </div>
-    <script src="scripts/script.js"></script>
+    
+    <template class="template">
+        <div class="cards__item">
+            <img class="cards__image" alt="Карачаево-Черкессия" src="./images/Karachaevsk1.png">
+            <div class="cards__header">
+                <h2 class="cards__title"></h2>
+                <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+            </div>
+        </div>
+    </template>
 </body>
 </html>
