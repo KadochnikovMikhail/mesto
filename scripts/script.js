@@ -102,7 +102,8 @@ function getItem(item) {
     return newItem
 }
 
-function hendleAdd(){
+function hendleAdd(evt){
+    evt.preventDefault();
     const inputTitleText = titleInput.value
     const listItem = getItem({name: inputTitleText})
     listContainerEL.prepend(listItem)
@@ -110,6 +111,6 @@ function hendleAdd(){
     titleInput.value = ''
 }
 
-buttonCreateCard.addEventListener('click', hendleAdd)
+buttonCreateCard.addEventListener('submit', hendleAdd)
 
 render()
