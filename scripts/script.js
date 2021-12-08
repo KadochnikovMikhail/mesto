@@ -31,3 +31,25 @@ function formSubmitHandler (evt) {
 }
 
 formElement.addEventListener('submit', formSubmitHandler); 
+
+
+const popupCards = document.querySelector('.popup-cards');
+const cards = document.querySelector('.cards');
+const addButton = profile.querySelector('.profile__addbutton');
+let titleInput = document.querySelector('#title');
+let linkInput = document.querySelector('#link');
+let cadrdTitle = cards.querySelector('.cards__title');
+const closeCardButton = popupCards.querySelector('.popup-cards__closebutton');
+
+function openCardPopup(){
+    popupCards.classList.add('popup-cards_opened');
+    //titleInput.value = cadrdTitle.textContent;
+    //linkInput.value = job.textContent;
+}
+
+addButton.addEventListener('click', openCardPopup);
+
+function closeCardPopup(){
+    popupCards.classList.remove('popup-cards_opened') ;
+}
+closeCardButton.addEventListener('click', closeCardPopup);

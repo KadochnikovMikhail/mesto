@@ -81,7 +81,7 @@
             &copy; 2020 Mesto Russia
         </footer>
     </div>
-    <div class="popup">
+    <div class="popup ">
         <div class="popup__container">
             <button class="popup__closebutton" type="button">
                 <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
@@ -94,6 +94,24 @@
                 <input class="form__data   " id = "job" type="text" name="description" placeholder="О себе" required>
                 <button class="form__buttonsave" type="submit">
                     <span class="form__buttontext">Сохранить</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup-cards">
+        <div class="popup-cards__container ">
+            <button class="popup-cards__closebutton" type="button">
+                <img class="popup-cards__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+            </button>
+            <form class="form" name="addform">
+                <div class="form__header">
+                    <h2 class="form__title">Новое место</h2>
+                </div>
+                <input class="form__data " id = "title" type="text" name="name" placeholder="Название" required>
+                <input class="form__data   " id = "link" type="text" name="description" placeholder="Ссылка на картинку" required>
+                <button class="form__buttonsave" type="submit">
+                    <span class="form__buttontext">Создать</span>
                 </button>
             </form>
         </div>
