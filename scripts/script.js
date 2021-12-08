@@ -82,7 +82,7 @@ const templateEL = document.querySelector('.template')
 let titleInput = document.querySelector('#title');
 let linkInput = document.querySelector('#link');
 
-const buttonCreateCard = document.querySelector('form__buttonsave')
+const buttonCreateCard = document.querySelector('.form__buttonsave')
 
 function render() {
     const html = initialCards
