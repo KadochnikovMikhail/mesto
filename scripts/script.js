@@ -78,6 +78,7 @@ const initialCards = [
 
 const listContainerEL = document.querySelector('.cards');
 const templateEL = document.querySelector('.template')
+const cardFormElement = popupCards.querySelector('.form');
 
 let titleInput = document.querySelector('#title');
 let linkInput = document.querySelector('#link');
@@ -97,7 +98,10 @@ function render() {
 function getItem(item) {
     const newItem = templateEL.content.cloneNode(true)
     const headerEl = newItem.querySelector('.cards__title')
+    const linkEl = newItem.querySelector('.popup-cards__closebutton-image')
+    const linkSrc = linkEl.setAttribute("src", ' ' );
     headerEl.textContent = item.name
+    linkSrc.textContent = item.link
 
     return newItem
 }
@@ -106,11 +110,15 @@ function hendleAdd(evt){
     evt.preventDefault();
     const inputTitleText = titleInput.value
     const listItem = getItem({name: inputTitleText})
+    const inputLinkText =  linkInput.value
+    const listItem = getItem({link: inputLinkText})
+
     listContainerEL.prepend(listItem)
 
     titleInput.value = ''
+    linkInput.value = ''
 }
 
-buttonCreateCard.addEventListener('submit', hendleAdd)
+cardFormElement.addEventListener('submit', hendleAdd)
 
 render()
