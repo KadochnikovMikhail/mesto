@@ -98,7 +98,7 @@ function render() {
 function getItem(item) {
     const newItem = templateEL.content.cloneNode(true)
     const headerEl = newItem.querySelector('.cards__title')
-    const linkEl = newItem.querySelector('.popup-cards__closebutton-image')
+    const linkEl = newItem.querySelector('.cards__image')
     const linkSrc = linkEl.setAttribute("src", ' ' );
     headerEl.textContent = item.name
     linkSrc.textContent = item.link
