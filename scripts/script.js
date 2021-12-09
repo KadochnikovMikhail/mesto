@@ -111,9 +111,10 @@ function hendleAdd(evt){
     const inputTitleText = titleInput.value
     const listItem = getItem({name: inputTitleText})
     const inputLinkText =  linkInput.value
-    const listItem = getItem({link: inputLinkText})
+    const listItemLink = getItem({link: inputLinkText})
 
     listContainerEL.prepend(listItem)
+    listContainerEL.prepend(listItemLink)
 
     titleInput.value = ''
     linkInput.value = ''
