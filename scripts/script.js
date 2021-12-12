@@ -90,10 +90,13 @@ function render() {
         .map((item, idx, arr) => {
             return getItem(item)
         })
-        
+
+
+
     listContainerEL.append(...html)
 
 }
+
 
 function getItem(item) {
     const newItem = templateEL.content.cloneNode(true)
@@ -101,25 +104,51 @@ function getItem(item) {
     const linkEl = newItem.querySelector('.cards__image')
     linkEl.src = item.link
     headerEl.textContent = item.name
-    
+
+    const removeBtn = newItem.querySelector('.cards__delete')
+    removeBtn.addEventListener('click', hendleDelete)
+
+    const likeBtn = newItem.querySelector('.cards__like')
+    likeBtn.addEventListener('click', like)
 
     return newItem
 }
 
-function hendleAdd(evt){
+function hendleAdd(evt) {
     evt.preventDefault();
     const inputTitleText = titleInput.value
-    const listItem = getItem({name: inputTitleText})
-    const inputLinkText =  linkInput.value
-    const listItemLink = getItem({link: inputLinkText})
+
+    const inputLinkText = linkInput.value
+    const listItem = getItem({ name: inputTitleText, link: inputLinkText })
+
 
     listContainerEL.prepend(listItem)
     listContainerEL.prepend(listItemLink)
 
     titleInput.value = ''
     linkInput.value = ''
+
+    closeCardPopup()
 }
+
+function hendleDelete(event){
+    const targetEl = event.target
+    const listItem = targetEl.closest('.cards__item')
+    listItem.remove()
+}
+
+
+
+function like(evt) {
+    
+     
+    evt.target.classList.toggle('cards__like_active');
+}
+
 
 cardFormElement.addEventListener('submit', hendleAdd)
 
 render()
+
+
+
