@@ -49,6 +49,22 @@ function closeCardPopup() {
 }
 closeCardButton.addEventListener('click', closeCardPopup);
 
+
+
+const popupImage = document.querySelector('.popup-image');
+const cardsImage = document.querySelector('.cards__image');
+const closeImageButton = popupImage.querySelector('.popup-image__closebutton');
+
+function openImagePopup() {
+    popupImage.classList.add('popup-image_opened');
+}
+
+
+function closeImagePopup() {
+    popupImage.classList.remove('popup-image_opened');
+}
+closeImageButton.addEventListener('click', closeImagePopup);
+
 const initialCards = [
     {
         name: 'Архыз',
@@ -97,6 +113,8 @@ function render() {
 
 }
 
+const titleImage = popupImage.querySelector('.popup-image__imagetitle')
+const imageEL = popupImage.querySelector('.popup-image__bigimage')
 
 function getItem(item) {
     const newItem = templateEL.content.cloneNode(true)
@@ -111,7 +129,15 @@ function getItem(item) {
     const likeBtn = newItem.querySelector('.cards__like')
     likeBtn.addEventListener('click', like)
 
+    cardsImage.addEventListener('click', () => {
+        openImagePopup();
+        imageEL.src = linkEl.src;
+        titleImage.textContent = headerEl.textContent;
+    
+    });
+    
     return newItem
+    
 }
 
 function hendleAdd(evt) {
@@ -149,6 +175,3 @@ function like(evt) {
 cardFormElement.addEventListener('submit', hendleAdd)
 
 render()
-
-
-
