@@ -148,7 +148,7 @@ function hendleAdd(evt) {
 
 
     listContainerEL.prepend(listItem)
-    listContainerEL.prepend(listItemLink)
+   
 
     titleInput.value = ''
     linkInput.value = ''
