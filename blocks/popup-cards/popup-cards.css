@@ -1,5 +1,6 @@
 .popup-cards{
     visibility: hidden;
+    display: flex;
     opacity: 0;
     transition: visibility 0s 0.5s, opacity 0.5s ;
     justify-content: center;
