@@ -52,7 +52,6 @@ closeCardButton.addEventListener('click', closeCardPopup);
 
 
 const popupImage = document.querySelector('.popup-image');
-const cardsImage = document.querySelector('.cards__image');
 const closeImageButton = popupImage.querySelector('.popup-image__closebutton');
 
 function openImagePopup() {
@@ -129,7 +128,7 @@ function getItem(item) {
     const likeBtn = newItem.querySelector('.cards__like')
     likeBtn.addEventListener('click', like)
 
-    cardsImage.addEventListener('click', () => {
+    linkEl.addEventListener('click', () => {
         openImagePopup();
         imageEL.src = linkEl.src;
         titleImage.textContent = headerEl.textContent;
