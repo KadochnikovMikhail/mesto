@@ -1,17 +1,16 @@
 const profile = document.querySelector('.profile');
 const editButton = profile.querySelector('.profile__edit-button');
-const popup = document.querySelector('.popup_type_user-info');
-const closeButton = popup.querySelector('.popup__closebutton');
+const profilePopup = document.querySelector('.popup_type_user-info');
+const closeButton = document.querySelector('.popup__closebutton');
 let nameProfile = profile.querySelector('.profile__name');
 let job = profile.querySelector('.profile__description');
 let nameInput = document.querySelector('#name');
 let jobInput = document.querySelector('#job');
-const buttonSave = popup.querySelector('.popup__buttonsave');
-const formElement = popup.querySelector('.popup__container');
+const buttonSave = document.querySelector('.popup__buttonsave');
+const formElement = document.querySelector('.popup__container');
 const cards = document.querySelector('.cards');
 const addButton = profile.querySelector('.profile__addbutton');
-const popupImage = document.querySelector('.popup-image');
-const closeImageButton = popupImage.querySelector('.popup-image__closebutton');
+const popupImage = document.querySelector('.popup_type_bigimage');
 const popupCards = document.querySelector('.popup_type_new-card')
 const templateEL = document.querySelector('.template')
 const cardFormElement = popupCards.querySelector('.form');
@@ -51,7 +50,7 @@ function formSubmitHandler(evt) {
 
     nameProfile.textContent = nameInput.value;
     job.textContent = jobInput.value;
-    closePopup()
+    closePopup(profilePopup)
 }
 
 formElement.addEventListener('submit', formSubmitHandler);
@@ -82,14 +81,12 @@ function getItem(item) {
     likeBtn.addEventListener('click', like)
 
     linkEl.addEventListener('click', () => {
-        openImagePopup();
+        openPopup(popupImage);
         imageEL.src =  item.link;
         titleImage.textContent = item.name;
     
     });
-    
     return newItem
-    
 }
 
 function hendleAdd(evt) {
@@ -99,15 +96,12 @@ function hendleAdd(evt) {
     const inputLinkText = linkInput.value
     const listItem = getItem({ name: inputTitleText, link: inputLinkText })
 
-
     cards.prepend(listItem)
    
-    closeCardPopup()
+    closePopup(popupCards)
 
     titleInput.value = ''
     linkInput.value = ''
-
-    
 }
 
 function hendleDelete(event){
@@ -116,47 +110,32 @@ function hendleDelete(event){
     listItem.remove()
 }
 
-
-
 function like(evt) {
-    
-     
     evt.target.classList.toggle('cards__like_active');
 }
-
 
 cardFormElement.addEventListener('submit', hendleAdd)
 
 render()
 
-
-function openPopup() {
+function openPopup(popup) {
     popup.classList.add('popup_opened');
-    popupCards.classList.add('popup_opened');
     nameInput.value = nameProfile.textContent;
     jobInput.value = job.textContent;
 }
 
-
-function closePopup() {
+function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    popupCards.classList.remove('popup_opened');
+    
     
 }
-editButton.addEventListener('click', openPopup(popup));
 
-closeButton.addEventListener('click', closePopup(popup));
+editButton.addEventListener('click', () => openPopup(profilePopup));
 
-addButton.addEventListener('click', openPopup(popupCards));
+closeButton.addEventListener('click', () => closePopup(profilePopup));
 
-closeButton.addEventListener('click', closePopup(popupCards));
+addButton.addEventListener('click', () => openPopup(popupCards));
 
-function openImagePopup() {
-    popupImage.classList.add('popup-image_opened');
-}
+closeButton.addEventListener('click', () => closePopup(popupCards));
 
-
-function closeImagePopup() {
-    popupImage.classList.remove('popup-image_opened');
-}
-closeImageButton.addEventListener('click', closeImagePopup);
+closeButton.addEventListener('click', () => closePopup(popupImage));
