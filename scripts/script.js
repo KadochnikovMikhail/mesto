@@ -46,7 +46,7 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-function formSubmitHandler(evt) {
+function handleSubmitUserInfo(evt) {
     evt.preventDefault();
 
     nameProfile.textContent = nameInput.value;
@@ -54,7 +54,7 @@ function formSubmitHandler(evt) {
     closePopup(profilePopup)
 }
 
-formElement.addEventListener('submit', formSubmitHandler);
+formElement.addEventListener('submit', handleSubmitUserInfo);
 
 function render() {
     const html = initialCards
@@ -76,7 +76,7 @@ function getItem(item) {
     headerEl.textContent = item.name
 
     const removeBtn = newItem.querySelector('.cards__delete')
-    removeBtn.addEventListener('click', hendleDelete)
+    removeBtn.addEventListener('click', handleDelete)
 
     const likeBtn = newItem.querySelector('.cards__like')
     likeBtn.addEventListener('click', like)
@@ -90,7 +90,7 @@ function getItem(item) {
     return newItem
 }
 
-function hendleAdd(evt) {
+function handleAdd(evt) {
     evt.preventDefault();
     const inputTitleText = titleInput.value
     const inputLinkText = linkInput.value
@@ -104,7 +104,7 @@ function hendleAdd(evt) {
     linkInput.value = ''
 }
 
-function hendleDelete(event) {
+function handleDelete(event) {
     const targetEl = event.target
     const listItem = targetEl.closest('.cards__item')
     listItem.remove()
@@ -114,14 +114,18 @@ function like(evt) {
     evt.target.classList.toggle('cards__like_active');
 }
 
-cardFormElement.addEventListener('submit', hendleAdd)
+cardFormElement.addEventListener('submit', handleAdd)
 
 render()
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+}
+
+function getInfo(popup){
     nameInput.value = nameProfile.textContent;
     jobInput.value = job.textContent;
+    openPopup(popup)
 }
 
 function closePopup(popup) {
@@ -131,7 +135,7 @@ popups.forEach((popup) => {
     const closeButton = popup.querySelector('.popup__closebutton');
     closeButton.addEventListener('click', () => closePopup(popup))
 })
-editButton.addEventListener('click', () => openPopup(profilePopup));
+editButton.addEventListener('click', () => getInfo(profilePopup));
 
 addButton.addEventListener('click', () => openPopup(popupCards));
 
