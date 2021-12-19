@@ -1,7 +1,7 @@
+const popupImage = document.querySelector('.popup_type_bigimage');
+const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');
 const editButton = profile.querySelector('.profile__edit-button');
-const profilePopup = document.querySelector('.popup_type_user-info');
-const closeButton = document.querySelector('.popup__closebutton');
 let nameProfile = profile.querySelector('.profile__name');
 let job = profile.querySelector('.profile__description');
 let nameInput = document.querySelector('#name');
@@ -10,15 +10,16 @@ const buttonSave = document.querySelector('.popup__buttonsave');
 const formElement = document.querySelector('.popup__container');
 const cards = document.querySelector('.cards');
 const addButton = profile.querySelector('.profile__addbutton');
-const popupImage = document.querySelector('.popup_type_bigimage');
-const popupCards = document.querySelector('.popup_type_new-card')
 const templateEL = document.querySelector('.template')
+const popupCards = document.querySelector('.popup_type_new-card')
 const cardFormElement = popupCards.querySelector('.form');
 let titleInput = document.querySelector('#title');
 let linkInput = document.querySelector('#link');
 const buttonCreateCard = document.querySelector('.form__buttonsave')
 const titleImage = popupImage.querySelector('.popup-image__imagetitle')
 const imageEL = popupImage.querySelector('.popup-image__bigimage')
+
+const popups = document.querySelectorAll('.popup')
 const initialCards = [
     {
         name: 'Архыз',
@@ -82,9 +83,9 @@ function getItem(item) {
 
     linkEl.addEventListener('click', () => {
         openPopup(popupImage);
-        imageEL.src =  item.link;
+        imageEL.src = item.link;
         titleImage.textContent = item.name;
-    
+
     });
     return newItem
 }
@@ -92,19 +93,18 @@ function getItem(item) {
 function hendleAdd(evt) {
     evt.preventDefault();
     const inputTitleText = titleInput.value
-
     const inputLinkText = linkInput.value
     const listItem = getItem({ name: inputTitleText, link: inputLinkText })
 
     cards.prepend(listItem)
-   
+
     closePopup(popupCards)
 
     titleInput.value = ''
     linkInput.value = ''
 }
 
-function hendleDelete(event){
+function hendleDelete(event) {
     const targetEl = event.target
     const listItem = targetEl.closest('.cards__item')
     listItem.remove()
@@ -126,16 +126,12 @@ function openPopup(popup) {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
-    
-    
 }
-
+popups.forEach((popup) => {
+    const closeButton = popup.querySelector('.popup__closebutton');
+    closeButton.addEventListener('click', () => closePopup(popup))
+})
 editButton.addEventListener('click', () => openPopup(profilePopup));
-
-closeButton.addEventListener('click', () => closePopup(profilePopup));
 
 addButton.addEventListener('click', () => openPopup(popupCards));
 
-closeButton.addEventListener('click', () => closePopup(popupCards));
-
-closeButton.addEventListener('click', () => closePopup(popupImage));
