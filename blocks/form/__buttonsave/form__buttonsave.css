@@ -4,7 +4,7 @@
 }
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .form__buttonsave{
-        padding: 0;
+        padding: 14px 82px;
         width: 238px;
         border: none;
         margin: 15px 22px 0;
@@ -12,12 +12,19 @@
         border-radius: 2px;
         height: 50px;
         cursor: pointer;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 17px;
+        text-align: center;
+        color: #FFFFFF;
     }
 }
 
 @media screen and (min-width: 768px)  {
     .form__buttonsave{
-        padding: 0;
+        padding: 14px 124px 18px 125px;
         width: 358px;
         border: none;
         margin: 18px 36px 0;
@@ -25,5 +32,15 @@
         border-radius: 2px;
         height: 50px;
         cursor: pointer;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        color: #FFFFFF;
     }
 }
+
+
+

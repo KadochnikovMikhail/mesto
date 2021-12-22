@@ -18,15 +18,12 @@ const hasInvalidInput = (inputs) => {
 }
 
 const toggleButtonError = (inputs, button, inactiveButtonClass, inactiveButtonTextClass) => {
-    const buttonText = querySelector('.form__buttontext')
     if (hasInvalidInput(inputs)) {
         button.classList.add(inactiveButtonClass)
-        buttonText.classList.add(inactiveButtonTextClass)
         button.disabled = true
     }
     else {
         button.classList.remove(inactiveButtonClass)
-        buttonText.classList.remove(inactiveButtonTextClass)
         button.disabled = false
     }
 }
@@ -70,7 +67,6 @@ enableValidation({
     inputSelector: '.form__data',
     submitButtonSelector: '.form__buttonsave',
     inactiveButtonClass: 'form__buttonsave_disabled',
-    inactiveButtonTextClass: 'form__buttontext_disabled',
     inputErrorClass: 'form__data_type_error',
     errorClass: 'popup__error_visible'
 });
