@@ -37,12 +37,12 @@ const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
     }
 }
 
-const setInputListners = (form, { inputSelector, inactiveButtonClass, ...rest }) => {
+const setInputListners = (form, { inputSelector, inactiveButtonClass, submitButtonSelector,...rest }) => {
     const inputs = form.querySelectorAll(inputSelector)
     const submitButton = form.querySelector(submitButtonSelector)
 
     inputs.forEach((input) => {
-        input.addEventListner('input', () => {
+        input.addEventListener('input', () => {
             checkIfInputValid(form, input, rest)
             toggleButtonError(inputs, submitButton, inactiveButtonClass )
         })
@@ -50,11 +50,11 @@ const setInputListners = (form, { inputSelector, inactiveButtonClass, ...rest })
 }
 
 
-const enableValidation = (formSelector, ...rest) => {
+const enableValidation = ({formSelector, ...rest}) => {
     const forms = document.querySelectorAll(formSelector)
 
     forms.forEach((form) => {
-        form.addEventListner('submit', (event) => {
+        form.addEventListener('submit', (event) => {
             event.preventDefault()
         })
 
@@ -63,9 +63,9 @@ const enableValidation = (formSelector, ...rest) => {
 }
 
 enableValidation({
-    formSelector: 'form',
-    inputSelector: 'form__data',
-    submitButtonSelector: 'form__buttonsave',
+    formSelector: '.form',
+    inputSelector: '.form__data',
+    submitButtonSelector: '.form__buttonsave',
     inactiveButtonClass: 'form__buttonsave_disabled',
     inputErrorClass: 'form__data_type_error',
     errorClass: 'popup__error_visible'

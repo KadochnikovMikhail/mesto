@@ -18,7 +18,7 @@ let linkInput = document.querySelector('#link');
 const buttonCreateCard = document.querySelector('.form__buttonsave')
 const titleImage = popupImage.querySelector('.popup__imagetitle')
 const imageEL = popupImage.querySelector('.popup__bigimage')
-
+const popupOverlay = document.querySelectorAll ('.popup');
 const popups = document.querySelectorAll('.popup')
 const initialCards = [
     {
@@ -120,6 +120,7 @@ render()
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeEsc);
 }
 
 function getInfo(popup){
@@ -128,14 +129,34 @@ function getInfo(popup){
     openPopup(popup)
 }
 
+
+function closeEsc(evt) {
+    if(evt.key === "Escape") {
+        const popup = document.querySelector(".popup_opened"); 
+        closePopup(popup);
+                                              
+    }
+}
+
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeEsc);
 }
 popups.forEach((popup) => {
     const closeButton = popup.querySelector('.popup__closebutton');
     closeButton.addEventListener('click', () => closePopup(popup))
+    
 })
+
+popupOverlay.forEach((item) => {
+    item.addEventListener ('click', function(evt) {
+        const popup = evt.target.closest('.popup')
+        closePopup(popup);
+    });
+});
+
 editButton.addEventListener('click', () => getInfo(profilePopup));
 
 addButton.addEventListener('click', () => openPopup(popupCards));
+
 
