@@ -18,7 +18,7 @@ let linkInput = document.querySelector('#link');
 const buttonCreateCard = document.querySelector('.form__buttonsave')
 const titleImage = popupImage.querySelector('.popup__imagetitle')
 const imageEL = popupImage.querySelector('.popup__bigimage')
-const popupOverlay = document.querySelectorAll ('.popup');
+const popupOverlay = document.querySelectorAll ('.popup__overlay');
 const popups = document.querySelectorAll('.popup')
 const initialCards = [
     {
