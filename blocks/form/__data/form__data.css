@@ -32,3 +32,7 @@
         color: #000000;
     }
 }
+
+.form__data.popup__input_type_error{
+    border-color: red;
+}

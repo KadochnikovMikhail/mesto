@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mesto</title>
-  <link rel="stylesheet" href="pages/index.css">
-  <script src="scripts/script.js" defer></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css">
+    <script src="scripts/script.js" defer></script>
+    <script src="scripts/validate.js" defer></script>
 </head>
+
 <body class="page">
     <div class="content">
         <header class="header">
@@ -22,11 +25,12 @@
                             <img class="profile__edit-button-image" alt="Редактировать" src="./images/editbutton.svg">
                         </button>
                     </div>
-                    
+
                     <h2 class="profile__description">Исследователь океана</h2>
                 </div>
-                <button class="profile__addbutton" type="button"><img class="profile__addbutton-image" alt="Добавить" src="./images/addbutton.svg"></button>
-                
+                <button class="profile__addbutton" type="button"><img class="profile__addbutton-image" alt="Добавить"
+                        src="./images/addbutton.svg"></button>
+
             </section>
             <section class="cards">
                 <!--<div class="cards__item">
@@ -91,8 +95,12 @@
                 <div class="form__header">
                     <h2 class="form__title">Редактировать профиль</h2>
                 </div>
-                <input class="form__data " id = "name" type="text" name="name" placeholder="Имя" required>
-                <input class="form__data   " id = "job" type="text" name="description" placeholder="О себе" required>
+                <input class="form__data" id="name" type="text" name="name" placeholder="Имя" required minlength="2"
+                    maxlength="40">
+                <span id="name-error" class="error"></span>
+                <input class="form__data" id="job" type="text" name="description" placeholder="О себе" required
+                    minlength="2" maxlength="200">
+                <span id="job-error" class="error"></span>
                 <button class="form__buttonsave" type="submit">
                     <span class="form__buttontext">Сохранить</span>
                 </button>
@@ -109,40 +117,45 @@
                 <div class="form__header">
                     <h2 class="form__title">Новое место</h2>
                 </div>
-                <input class="form__data " id = "title" type="text" name="name" placeholder="Название" required>
-                <input class="form__data   " id = "link" type="text" name="description" placeholder="Ссылка на картинку" required>
+                <input class="form__data" id="title" type="text" name="name" placeholder="Название" required>
+                <span id="title-error" class="error"></span>
+                <input class="form__data" id="link" type="url" name="description" placeholder="Ссылка на картинку"
+                    required>
+                <span id="link-error" class="error"></span>
                 <button class="form__buttonsave" type="submit">
                     <span class="form__buttontext">Создать</span>
                 </button>
             </form>
         </div>
     </div>
-    
-        <div class="popup popup_type_bigimage">
-            <div class="popup__container-image">
-                <button class="popup__closebutton" type="button">
-                    <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
-                </button>
-                <div>
-                    <img class="popup__bigimage" alt="" src="./images/Dombai1.png">
-                </div>
-               <h2 class="popup__imagetitle"></h2>
+
+    <div class="popup popup_type_bigimage">
+        <div class="popup__container-image">
+            <button class="popup__closebutton" type="button">
+                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+            </button>
+            <div>
+                <img class="popup__bigimage" alt="" src="./images/Dombai1.png">
             </div>
+            <h2 class="popup__imagetitle"></h2>
         </div>
-    
+    </div>
+
 
     <template class="template">
         <div class="cards__item">
             <button class="cards__delete" type="button">
                 <img class="cards__delete-image" alt="Удалить" src="./images/Trash.svg">
             </button>
-            
+
             <img class="cards__image" alt="Карачаево-Черкессия" src="./images/Karachaevsk1.png">
             <div class="cards__header">
                 <h2 class="cards__title"></h2>
-                <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+                <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк"
+                        src="./images/like.svg"></button>
             </div>
         </div>
     </template>
 </body>
+
 </html>
