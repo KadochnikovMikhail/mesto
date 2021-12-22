@@ -26,3 +26,7 @@
         color: #FFFFFF;
     }
 }
+
+.form__buttontext.form__buttontext_disabled{
+    color: black;
+}
