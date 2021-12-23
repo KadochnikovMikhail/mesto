@@ -28,14 +28,22 @@ const toggleButtonError = (inputs, button, inactiveButtonClass, inactiveButtonTe
     }
 }
 
+
 const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
     if (!input.validity.valid) {
         showError(form, input, input.validationMessage, errorClass, inputErrorClass)
     }
     else {
-        hideError(form, input, inputErrorClass, errorClass)
+        hideError(form, input, errorClass, inputErrorClass)
     }
 }
+
+const disabledButton = (button, inactiveButtonClass) => {
+    button.disabled = true
+    button.classList.add(inactiveButtonClass)
+   
+}
+
 
 const setInputListners = (form, { inputSelector, inactiveButtonClass,inactiveButtonTextClass, submitButtonSelector,...rest }) => {
     const inputs = form.querySelectorAll(inputSelector)
@@ -45,6 +53,7 @@ const setInputListners = (form, { inputSelector, inactiveButtonClass,inactiveBut
         input.addEventListener('input', () => {
             checkIfInputValid(form, input, rest)
             toggleButtonError(inputs, submitButton, inactiveButtonClass, inactiveButtonTextClass )
+            disabledButton(button, inactiveButtonClass)
         })
     })
 }

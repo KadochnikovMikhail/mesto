@@ -2,10 +2,10 @@ const popupImage = document.querySelector('.popup_type_bigimage');
 const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');
 const editButton = profile.querySelector('.profile__edit-button');
-let nameProfile = profile.querySelector('.profile__name');
-let job = profile.querySelector('.profile__description');
-let nameInput = document.querySelector('#name');
-let jobInput = document.querySelector('#job');
+const nameProfile = profile.querySelector('.profile__name');
+const job = profile.querySelector('.profile__description');
+const nameInput = document.querySelector('#name');
+const jobInput = document.querySelector('#job');
 const buttonSave = document.querySelector('.popup__buttonsave');
 const formElement = document.querySelector('.popup__container');
 const cards = document.querySelector('.cards');
@@ -13,8 +13,8 @@ const addButton = profile.querySelector('.profile__addbutton');
 const templateEL = document.querySelector('.template')
 const popupCards = document.querySelector('.popup_type_new-card')
 const cardFormElement = popupCards.querySelector('.form');
-let titleInput = document.querySelector('#title');
-let linkInput = document.querySelector('#link');
+const titleInput = document.querySelector('#title');
+const linkInput = document.querySelector('#link');
 const buttonCreateCard = document.querySelector('.form__buttonsave')
 const titleImage = popupImage.querySelector('.popup__imagetitle')
 const imageEL = popupImage.querySelector('.popup__bigimage')
@@ -82,9 +82,10 @@ function getItem(item) {
     likeBtn.addEventListener('click', like)
 
     linkEl.addEventListener('click', () => {
-        openPopup(popupImage);
+        
         imageEL.src = item.link;
         titleImage.textContent = item.name;
+        openPopup(popupImage);
 
     });
     return newItem
