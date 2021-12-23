@@ -38,11 +38,7 @@ const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
     }
 }
 
-const disabledButton = (button) => {
-    button.disabled = true
-    button.classList.add('form__buttonsave_disabled')
-   
-}
+
 
 
 const setInputListners = (form, { inputSelector, inactiveButtonClass,inactiveButtonTextClass, submitButtonSelector,...rest }) => {

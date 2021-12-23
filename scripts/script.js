@@ -119,6 +119,12 @@ cardFormElement.addEventListener('submit', handleAdd)
 
 render()
 
+const disabledButton = (button) => {
+    button.disabled = true
+    button.classList.add('form__buttonsave_disabled')
+   
+}
+
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeEsc);
