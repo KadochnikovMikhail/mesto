@@ -6,7 +6,7 @@ const nameProfile = profile.querySelector('.profile__name');
 const job = profile.querySelector('.profile__description');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
-const buttonSave = document.querySelector('.popup__buttonsave');
+const buttonSave = document.querySelector('.form__buttonsave_type_save');
 const formElement = document.querySelector('.popup__container');
 const cards = document.querySelector('.cards');
 const addButton = profile.querySelector('.profile__addbutton');
@@ -15,11 +15,12 @@ const popupCards = document.querySelector('.popup_type_new-card')
 const cardFormElement = popupCards.querySelector('.form');
 const titleInput = document.querySelector('#title');
 const linkInput = document.querySelector('#link');
-const buttonCreateCard = document.querySelector('.form__buttonsave')
+const buttonCreateCard = document.querySelector('.form__buttonsave_type_create')
 const titleImage = popupImage.querySelector('.popup__imagetitle')
 const imageEL = popupImage.querySelector('.popup__bigimage')
 const popupOverlay = document.querySelectorAll ('.popup__overlay');
 const popups = document.querySelectorAll('.popup')
+const buttonSubmit = document.querySelectorAll('.form__buttonsave')
 const initialCards = [
     {
         name: 'Архыз',
@@ -119,16 +120,17 @@ cardFormElement.addEventListener('submit', handleAdd)
 
 render()
 
-const disabledButton = (button) => {
-    button.disabled = true
-    button.classList.add('form__buttonsave_disabled')
-   
+const disabledButton = (button1, button2) => {
+    button1.disabled = true
+    button2.disabled = true
+    button1.classList.add('form__buttonsave_disabled')
+    button2.classList.add('form__buttonsave_disabled')
 }
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeEsc);
-    disabledButton(buttonSave)
+    disabledButton(buttonSave, buttonCreateCard )
 }
 
 function getInfo(popup){
