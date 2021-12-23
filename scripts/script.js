@@ -122,6 +122,7 @@ render()
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeEsc);
+    disabledButton(buttonSave)
 }
 
 function getInfo(popup){

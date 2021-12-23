@@ -17,7 +17,7 @@ const hasInvalidInput = (inputs) => {
     return Array.from(inputs).some((el) => !el.validity.valid)
 }
 
-const toggleButtonError = (inputs, button, inactiveButtonClass, inactiveButtonTextClass) => {
+const toggleButtonError = (inputs, button, inactiveButtonClass) => {
     if (hasInvalidInput(inputs)) {
         button.classList.add(inactiveButtonClass)
         button.disabled = true
@@ -38,9 +38,9 @@ const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
     }
 }
 
-const disabledButton = (button, inactiveButtonClass) => {
+const disabledButton = (button) => {
     button.disabled = true
-    button.classList.add(inactiveButtonClass)
+    button.classList.add('form__buttonsave_disabled')
    
 }
 
@@ -53,7 +53,7 @@ const setInputListners = (form, { inputSelector, inactiveButtonClass,inactiveBut
         input.addEventListener('input', () => {
             checkIfInputValid(form, input, rest)
             toggleButtonError(inputs, submitButton, inactiveButtonClass, inactiveButtonTextClass )
-            disabledButton(button, inactiveButtonClass)
+            
         })
     })
 }
