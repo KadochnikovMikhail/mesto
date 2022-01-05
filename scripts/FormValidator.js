@@ -1,3 +1,4 @@
+
 export default class FormValidator {
     constructor(selector, form) {
         this._form = form
@@ -78,6 +79,4 @@ export default class FormValidator {
     }
 
 }
-
-
 

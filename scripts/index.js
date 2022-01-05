@@ -1,3 +1,4 @@
+import FormValidator from "../scripts/FormValidator";
 const popupImage = document.querySelector('.popup_type_bigimage');
 const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');
@@ -47,6 +48,21 @@ const initialCards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+
+ const enableValidation = {
+    formSelector: '.form',
+    inputSelector: '.form__data',
+    submitButtonSelector: '.form__buttonsave',
+    inactiveButtonClass: 'form__buttonsave_disabled',
+    inputErrorClass: 'form__data_type_error',
+    errorClass: 'popup__error_visible'
+};
+const addCardFormValidator = new FormValidator (enableValidation , addButton);
+const editProfileFormValidator = new FormValidator (enableValidation , editButton);
+
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
+
 function handleSubmitUserInfo(evt) {
     evt.preventDefault();
 
