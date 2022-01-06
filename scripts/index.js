@@ -1,4 +1,4 @@
-import FormValidator from "../scripts/FormValidator";
+import FormValidator from "../scripts/FormValidator.js";
 const popupImage = document.querySelector('.popup_type_bigimage');
 const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');
@@ -21,6 +21,8 @@ const titleImage = popupImage.querySelector('.popup__imagetitle')
 const imageEL = popupImage.querySelector('.popup__bigimage')
 const popupOverlay = document.querySelectorAll ('.popup__overlay');
 const popups = document.querySelectorAll('.popup')
+const formEdit = document.querySelector('#form-edit');  
+const formAdd = document.querySelector('#form-add'); 
 const buttonSubmit = document.querySelectorAll('.form__buttonsave')
 const initialCards = [
     {
@@ -50,15 +52,14 @@ const initialCards = [
 ];
 
  const enableValidation = {
-    formSelector: '.form',
     inputSelector: '.form__data',
     submitButtonSelector: '.form__buttonsave',
     inactiveButtonClass: 'form__buttonsave_disabled',
     inputErrorClass: 'form__data_type_error',
     errorClass: 'popup__error_visible'
 };
-const addCardFormValidator = new FormValidator (enableValidation , addButton);
-const editProfileFormValidator = new FormValidator (enableValidation , editButton);
+const addCardFormValidator = new FormValidator (enableValidation , formAdd);
+const editProfileFormValidator = new FormValidator (enableValidation , formEdit);
 
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
