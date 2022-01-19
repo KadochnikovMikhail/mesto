@@ -1,6 +1,6 @@
 import FormValidator from "../scripts/FormValidator.js";
 import Card from '../scripts/Card.js';
-const cardsItem = document.querySelector('.cards__item');
+const cardsItem = document  .querySelectorAll('.cards__item');
 const popupImage = document.querySelector('.popup_type_bigimage');
 const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');
@@ -75,7 +75,7 @@ function createCard(item) {
 function handleCard(name, link, alt) {
     openPopup(popupOverlay);
     document.querySelector('.popup__bigimage').src = link;
-    document.querySelector('.popup__imagetitle').textContent = name;
+    document.querySelector('.popup__imagetitle').textContent = name;    
     document.querySelector('.popup__bigimage').alt = alt;
 };
 
@@ -109,7 +109,7 @@ function handleAdd(evt) {
         name: titleInput.value,
         link: linkInput.value
     };
-    cardsItem.prepend(createCard(listItem));
+    cards.prepend(createCard(listItem));
     titleInput.value = '';
     linkInput.value = '';
     closePopup(popupCards)
