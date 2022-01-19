@@ -1,4 +1,6 @@
 import FormValidator from "../scripts/FormValidator.js";
+import Card from '../scripts/Card.js';
+const cardsItem = document.querySelector('.cards__item');
 const popupImage = document.querySelector('.popup_type_bigimage');
 const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');
@@ -11,7 +13,6 @@ const buttonSave = document.querySelector('.form__buttonsave_type_save');
 const formElement = document.querySelector('.popup__container');
 const cards = document.querySelector('.cards');
 const addButton = profile.querySelector('.profile__addbutton');
-const templateEL = document.querySelector('.template')
 const popupCards = document.querySelector('.popup_type_new-card')
 const cardFormElement = popupCards.querySelector('.form');
 const titleInput = document.querySelector('#title');
@@ -64,6 +65,20 @@ const editProfileFormValidator = new FormValidator (enableValidation , formEdit)
 addCardFormValidator.enableValidation();
 editProfileFormValidator.enableValidation();
 
+function createCard(item) { 
+    const card = new Card('.template', item.name, item.link, item.alt, handleCard);
+    const cardEl = card.getView();
+    return cardEl;
+
+};
+
+function handleCard(name, link, alt) {
+    openPopup(popupOverlay);
+    document.querySelector('.popup__bigimage').src = link;
+    document.querySelector('.popup__imagetitle').textContent = name;
+    document.querySelector('.popup__bigimage').alt = alt;
+};
+
 function handleSubmitUserInfo(evt) {
     evt.preventDefault();
 
@@ -77,7 +92,7 @@ formElement.addEventListener('submit', handleSubmitUserInfo);
 function render() {
     const html = initialCards
         .map((item) => {
-            return getItem(item)
+            return createCard(item)
         })
 
 
@@ -86,41 +101,18 @@ function render() {
 
 }
 
-function getItem(item) {
-    const newItem = templateEL.content.cloneNode(true)
-    const headerEl = newItem.querySelector('.cards__title')
-    const linkEl = newItem.querySelector('.cards__image')
-    linkEl.src = item.link
-    headerEl.textContent = item.name
-
-    const removeBtn = newItem.querySelector('.cards__delete')
-    removeBtn.addEventListener('click', handleDelete)
-
-    const likeBtn = newItem.querySelector('.cards__like')
-    likeBtn.addEventListener('click', like)
-
-    linkEl.addEventListener('click', () => {
-        
-        imageEL.src = item.link;
-        titleImage.textContent = item.name;
-        openPopup(popupImage);
-
-    });
-    return newItem
-}
 
 function handleAdd(evt) {
     evt.preventDefault();
-    const inputTitleText = titleInput.value
-    const inputLinkText = linkInput.value
-    const listItem = getItem({ name: inputTitleText, link: inputLinkText })
 
-    cards.prepend(listItem)
-
+    const listItem = {
+        name: titleInput.value,
+        link: linkInput.value
+    };
+    cardsItem.prepend(createCard(listItem));
+    titleInput.value = '';
+    linkInput.value = '';
     closePopup(popupCards)
-
-    titleInput.value = ''
-    linkInput.value = ''
 }
 
 function handleDelete(event) {
@@ -129,9 +121,6 @@ function handleDelete(event) {
     listItem.remove()
 }
 
-function like(evt) {
-    evt.target.classList.toggle('cards__like_active');
-}
 
 cardFormElement.addEventListener('submit', handleAdd)
 
