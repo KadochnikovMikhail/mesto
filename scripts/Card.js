@@ -19,7 +19,7 @@ export default class Card {
         this._element.remove();
     }
 
-    _like = () => {
+    _likeBt = () => {
         this._like.classList.toggle('cards__like_active')
     }
 
@@ -41,7 +41,7 @@ export default class Card {
         this._element.querySelector('.cards__delete').addEventListener('click', this._deleteCard);
 
        
-        this._like.addEventListener('click', this._like);
+        this._like.addEventListener('click', this._likeBt);
 
         
         this._cardImage.addEventListener('click', () => {
