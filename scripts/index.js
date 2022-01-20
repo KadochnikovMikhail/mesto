@@ -20,7 +20,7 @@ const linkInput = document.querySelector('#link');
 const buttonCreateCard = document.querySelector('.form__buttonsave_type_create')
 const titleImage = popupImage.querySelector('.popup__imagetitle')
 const imageEL = popupImage.querySelector('.popup__bigimage')
-const popupOverlay = document.querySelectorAll ('.popup__overlay');
+
 const popups = document.querySelectorAll('.popup')
 const formEdit = document.querySelector('#form-edit');  
 const formAdd = document.querySelector('#form-add'); 
@@ -73,7 +73,7 @@ function createCard(item) {
 };
 
 function handleCard(name, link, alt) {
-    openPopup(popupOverlay);
+    openPopup(popupImage);
     document.querySelector('.popup__bigimage').src = link;
     document.querySelector('.popup__imagetitle').textContent = name;    
     document.querySelector('.popup__bigimage').alt = alt;
@@ -164,12 +164,6 @@ popups.forEach((popup) => {
     
 })
 
-popupOverlay.forEach((item) => {
-    item.addEventListener ('click', function(evt) {
-        const popup = evt.target.closest('.popup')
-        closePopup(popup);
-    });
-});
 
 editButton.addEventListener('click', () => getInfo(profilePopup));
 
