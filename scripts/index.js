@@ -176,3 +176,4 @@ overlayCard.addEventListener('click', () => closePopup(popupCards));
 overlayProfile.addEventListener('click', () => closePopup(profilePopup));
 overlayImg.addEventListener('click', () => closePopup(popupImage));
 
+    
