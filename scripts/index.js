@@ -20,11 +20,13 @@ const linkInput = document.querySelector('#link');
 const buttonCreateCard = document.querySelector('.form__buttonsave_type_create')
 const titleImage = popupImage.querySelector('.popup__imagetitle')
 const imageEL = popupImage.querySelector('.popup__bigimage')
-
 const popups = document.querySelectorAll('.popup')
 const formEdit = document.querySelector('#form-edit');  
 const formAdd = document.querySelector('#form-add'); 
 const buttonSubmit = document.querySelectorAll('.form__buttonsave')
+const overlayProfile = document.getElementById('overlay__profile');
+const overlayCard = document.getElementById('overlay__card');
+const overlayImg = document.getElementById('overlay__img');
 const initialCards = [
     {
         name: 'Архыз',
@@ -169,4 +171,8 @@ editButton.addEventListener('click', () => getInfo(profilePopup));
 
 addButton.addEventListener('click', () => openPopup(popupCards));
 
+
+overlayCard.addEventListener('click', () => closePopup(popupCards));
+overlayProfile.addEventListener('click', () => closePopup(profilePopup));
+overlayImg.addEventListener('click', () => closePopup(popupImage));
 
