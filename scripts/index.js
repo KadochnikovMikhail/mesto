@@ -1,6 +1,5 @@
 import FormValidator from "../scripts/FormValidator.js";
 import Card from '../scripts/Card.js';
-const cardsItem = document  .querySelectorAll('.cards__item');
 const popupImage = document.querySelector('.popup_type_bigimage');
 const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');
@@ -10,7 +9,7 @@ const job = profile.querySelector('.profile__description');
 const nameInput = document.querySelector('#name');
 const jobInput = document.querySelector('#job');
 const buttonSave = document.querySelector('.form__buttonsave_type_save');
-const formElement = document.querySelector('.popup__container');
+const profileForm = document.querySelector('.popup__container');
 const cards = document.querySelector('.cards');
 const addButton = profile.querySelector('.profile__addbutton');
 const popupCards = document.querySelector('.popup_type_new-card')
@@ -23,7 +22,6 @@ const imageEL = popupImage.querySelector('.popup__bigimage')
 const popups = document.querySelectorAll('.popup')
 const formEdit = document.querySelector('#form-edit');  
 const formAdd = document.querySelector('#form-add'); 
-const buttonSubmit = document.querySelectorAll('.form__buttonsave')
 const overlayProfile = document.getElementById('overlay__profile');
 const overlayCard = document.getElementById('overlay__card');
 const overlayImg = document.getElementById('overlay__img');
@@ -76,9 +74,9 @@ function createCard(item) {
 
 function handleCard(name, link, alt) {
     openPopup(popupImage);
-    document.querySelector('.popup__bigimage').src = link;
-    document.querySelector('.popup__imagetitle').textContent = name;    
-    document.querySelector('.popup__bigimage').alt = alt;
+    imageEL.src = link;
+    titleImage.textContent = name;    
+    imageEL.alt = alt;
 };
 
 function handleSubmitUserInfo(evt) {
@@ -89,7 +87,7 @@ function handleSubmitUserInfo(evt) {
     closePopup(profilePopup)
 }
 
-formElement.addEventListener('submit', handleSubmitUserInfo);
+profileForm.addEventListener('submit', handleSubmitUserInfo);
 
 function render() {
     const html = initialCards
@@ -117,28 +115,15 @@ function handleAdd(evt) {
     closePopup(popupCards)
 }
 
-function handleDelete(event) {
-    const targetEl = event.target
-    const listItem = targetEl.closest('.cards__item')
-    listItem.remove()
-}
-
-
 cardFormElement.addEventListener('submit', handleAdd)
 
 render()
 
-const disabledButton = (button1, button2) => {
-    button1.disabled = true
-    button2.disabled = true
-    button1.classList.add('form__buttonsave_disabled')
-    button2.classList.add('form__buttonsave_disabled')
-}
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeEsc);
-    disabledButton(buttonSave, buttonCreateCard )
+    
 }
 
 function getInfo(popup){
