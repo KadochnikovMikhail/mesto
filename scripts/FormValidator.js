@@ -45,6 +45,7 @@ export default class FormValidator {
     _checkIfInputValid (input) {
         if (!input.validity.valid) {
             this._showError(input, input.validationMessage)
+            this._buttonElement.classList.add(this._inactiveButtonClass)
         }
         else {
             this._hideError(input)
@@ -66,7 +67,8 @@ export default class FormValidator {
         });
     }
 
-
+  
+  
     
     enableValidation() {
         this._form.addEventListener('submit', function (evt) {

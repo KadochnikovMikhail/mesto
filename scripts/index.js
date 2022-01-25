@@ -73,7 +73,7 @@ function createCard(item) {
 };
 
 function handleCard(name, link, alt) {
-    openPopup(popupImage);
+    openPopup(popupImage, resetValidation);
     imageEL.src = link;
     titleImage.textContent = name;    
     imageEL.alt = alt;
@@ -102,6 +102,7 @@ function render() {
 }
 
 
+
 function handleAdd(evt) {
     evt.preventDefault();
 
@@ -112,6 +113,7 @@ function handleAdd(evt) {
     cards.prepend(createCard(listItem));
     titleInput.value = '';
     linkInput.value = '';
+
     closePopup(popupCards)
 }
 
@@ -122,6 +124,7 @@ render()
 
 function openPopup(popup) {
     popup.classList.add('popup_opened');
+    
     document.addEventListener('keydown', closeEsc);
     
 }
@@ -143,6 +146,7 @@ function closeEsc(evt) {
 
 function closePopup(popup) {
     popup.classList.remove('popup_opened');
+
     document.removeEventListener('keydown', closeEsc);
 }
 popups.forEach((popup) => {
@@ -154,11 +158,14 @@ popups.forEach((popup) => {
 
 editButton.addEventListener('click', () => getInfo(profilePopup));
 
-addButton.addEventListener('click', () => openPopup(popupCards));
+addButton.addEventListener('click', () => {
+    openPopup(popupCards)
+    addCardFormValidator._toggleButtonError ()
+});
 
 
 overlayCard.addEventListener('click', () => closePopup(popupCards));
 overlayProfile.addEventListener('click', () => closePopup(profilePopup));
 overlayImg.addEventListener('click', () => closePopup(popupImage));
 
-//              
+     
