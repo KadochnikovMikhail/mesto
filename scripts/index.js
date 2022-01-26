@@ -160,7 +160,7 @@ editButton.addEventListener('click', () => getInfo(profilePopup));
 
 addButton.addEventListener('click', () => {
     openPopup(popupCards)
-    addCardFormValidator._toggleButtonError ()
+    addCardFormValidator.toggleButtonError ()
 });
 
 
