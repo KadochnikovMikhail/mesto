@@ -73,7 +73,7 @@ function createCard(item) {
 };
 
 function handleCard(name, link, alt) {
-    openPopup(popupImage, resetValidation);
+    openPopup(popupImage);
     imageEL.src = link;
     titleImage.textContent = name;    
     imageEL.alt = alt;
