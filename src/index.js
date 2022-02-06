@@ -1,6 +1,16 @@
-
+import '../pages/index.css';
 import FormValidator from "../scripts/FormValidator.js";
 import Card from '../scripts/Card.js';
+import headerLogo from '../images/logo.svg';
+import profileImage from '../images/avatar.png';
+import editBtn from '../images/addbutton.svg';
+import addBtn from '../images/editbutton.svg';
+import closeButton from '../images/CloseIcon.svg';
+import cardsDelete from '../images/Trash.svg';
+import like from '../images/like.svg';
+import actLike from '../images/activelike.svg';
+
+
 const popupImage = document.querySelector('.popup_type_bigimage');
 const profilePopup = document.querySelector('.popup_type_user-info');
 const profile = document.querySelector('.profile');

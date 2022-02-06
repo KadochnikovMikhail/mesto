@@ -5,30 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-    <link rel="stylesheet" href="pages/index.css">
    
 </head>
 
 <body class="page">
     <div class="content">
         <header class="header">
-            <img class="header__logo" alt="Проект Место" src="./images/logo.svg">
+            <img class="header__logo" alt="Проект Место" src="<%=require('../images/logo.svg')%>">
         </header>
         <main class="main">
             <section class="profile">
-                <img class="profile__image" alt="Фото профиля" src="./images/avatar.png">
+                <img class="profile__image" alt="Фото профиля" src="<%=require('../images/avatar.png')%>">
                 <div class="profile__info">
                     <div class="profile__header">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <button class="profile__edit-button" type="button">
-                            <img class="profile__edit-button-image" alt="Редактировать" src="./images/editbutton.svg">
+                            <img class="profile__edit-button-image" alt="Редактировать" src="<%=require('../images/editbutton.svg')%>">
                         </button>
                     </div>
 
                     <h2 class="profile__description">Исследователь океана</h2>
                 </div>
                 <button class="profile__addbutton" type="button"><img class="profile__addbutton-image" alt="Добавить"
-                        src="./images/addbutton.svg"></button>
+                        src="<%=require('../images/addbutton.svg')%>"></button>
 
             </section>
             <section class="cards">
@@ -89,7 +88,7 @@
         <div class="popup__overlay" id="overlay__profile"></div>
         <div class="popup__container">
             <button class="popup__closebutton" type="button">
-                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+                <img class="popup__closebutton-image" alt="закрыть" src="<%=require('../images/CloseIcon.svg')%>">
             </button>
             <form class="form" id = "form-edit" name="profileform">
                 <div class="form__header">
@@ -112,7 +111,7 @@
         <div class="popup__overlay" id="overlay__card"></div>
         <div class="popup__container ">
             <button class="popup__closebutton" type="button">
-                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+                <img class="popup__closebutton-image" alt="закрыть" src="<%=require('../images/CloseIcon.svg')%>">
             </button>
             <form class="form" id = "form-add" name="addform">
                 <div class="form__header">
@@ -135,10 +134,10 @@
         <div class="popup__overlay" id="overlay__img"></div>
         <div class="popup__container-image">
             <button class="popup__closebutton" type="button">
-                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+                <img class="popup__closebutton-image" alt="закрыть" src="<%=require('../images/CloseIcon.svg')%>">
             </button>
             <div>
-                <img class="popup__bigimage" alt="" src="./images/Dombai1.png">
+                <img class="popup__bigimage" alt="" src="../images/Dombai1.png">
             </div>
             <h2 class="popup__imagetitle"></h2>
         </div>
@@ -148,14 +147,14 @@
     <template class="template">
         <div class="cards__item">
             <button class="cards__delete" type="button">
-                <img class="cards__delete-image" alt="Удалить" src="./images/Trash.svg">
+                <img class="cards__delete-image" alt="Удалить" src="<%=require('../images/Trash.svg')%>">
             </button>
 
-            <img class="cards__image" alt="Такой картинки нет(" src="./images/Karachaevsk1.png">
+            <img class="cards__image" alt="Такой картинки нет(" src="../images/Karachaevsk1.png">
             <div class="cards__header">
                 <h2 class="cards__title"></h2>
                 <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк"
-                        src="./images/like.svg"></button>
+                        src="<%=require('../images/like.svg')%>"></button>
             </div>
         </div>
     </template>
