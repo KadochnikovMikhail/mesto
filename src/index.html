@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mesto</title>
+    <link rel="stylesheet" href="pages/index.css">
+   
+</head>
+
+<body class="page">
+    <div class="content">
+        <header class="header">
+            <img class="header__logo" alt="Проект Место" src="./images/logo.svg">
+        </header>
+        <main class="main">
+            <section class="profile">
+                <img class="profile__image" alt="Фото профиля" src="./images/avatar.png">
+                <div class="profile__info">
+                    <div class="profile__header">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <button class="profile__edit-button" type="button">
+                            <img class="profile__edit-button-image" alt="Редактировать" src="./images/editbutton.svg">
+                        </button>
+                    </div>
+
+                    <h2 class="profile__description">Исследователь океана</h2>
+                </div>
+                <button class="profile__addbutton" type="button"><img class="profile__addbutton-image" alt="Добавить"
+                        src="./images/addbutton.svg"></button>
+
+            </section>
+            <section class="cards">
+                <!--<div class="cards__item">
+                    <img class="cards__image" alt="Карачаевск" src="./images/Karachaevsk1.png">
+                    <div class="cards__header">
+                        <h2 class="cards__title">Карачаевск</h2>
+                        <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+
+                    </div>
+                    
+                </div>
+                <div class="cards__item">
+                    <img class="cards__image" alt="Гора Эльбрус" src="./images/Elbrus.png">
+                    <div class="cards__header">
+                        <h2 class="cards__title">Гора Эльбрус</h2>
+                        <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+                    </div>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__image" alt="Домбай" src="./images/Dombai.png">
+                    <div class="cards__header">
+                        <h2 class="cards__title">Домбай</h2>
+                        <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+
+                    </div>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__image" alt="Гора Эльбрус" src="./images/Elbrus1.png">
+                    <div class="cards__header">
+                        <h2 class="cards__title">Гора Эльбрус</h2>
+                        <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+
+                    </div>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__image" alt="Домбай" src="./images/Dombai1.png">
+                    <div class="cards__header">
+                        <h2 class="cards__title">Домбай</h2>
+                        <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+
+                    </div>
+                </div>
+                <div class="cards__item">
+                    <img class="cards__image" alt="Карачаево-Черкессия" src="./images/Karachaevsk1.png">
+                    <div class="cards__header">
+                        <h2 class="cards__title">Карачаево-Черкессия</h2>
+                        <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк" src="./images/like.svg"></button>
+                    </div>
+                </div>_-->
+            </section>
+        </main>
+        <footer class="footer">
+            &copy; 2021 Mesto Russia
+        </footer>
+    </div>
+    <div class="popup popup_type_user-info">
+        <div class="popup__overlay" id="overlay__profile"></div>
+        <div class="popup__container">
+            <button class="popup__closebutton" type="button">
+                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+            </button>
+            <form class="form" id = "form-edit" name="profileform">
+                <div class="form__header">
+                    <h2 class="form__title">Редактировать профиль</h2>
+                </div>
+                <input class="form__data" id="name" type="text" name="name" placeholder="Имя" required minlength="2"
+                    maxlength="40">
+                <span id="name-error" class="error"></span>
+                <input class="form__data" id="job" type="text" name="description" placeholder="О себе" required
+                    minlength="2" maxlength="200">
+                <span id="job-error" class="error"></span>
+                <button class="form__buttonsave form__buttonsave_type_save" type="submit">
+                    <span>Сохранить</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_type_new-card">
+        <div class="popup__overlay" id="overlay__card"></div>
+        <div class="popup__container ">
+            <button class="popup__closebutton" type="button">
+                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+            </button>
+            <form class="form" id = "form-add" name="addform">
+                <div class="form__header">
+                    <h2 class="form__title">Новое место</h2>
+                </div>
+                <input class="form__data" id="title" type="text" name="name" placeholder="Название" required minlength="2"
+                maxlength="30">
+                <span id="title-error" class="error"></span>
+                <input class="form__data" id="link" type="url" name="description" placeholder="Ссылка на картинку"
+                    required>
+                <span id="link-error" class="error"></span>
+                <button class="form__buttonsave form__buttonsave_type_create" type="submit">
+                    <span >Создать</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_type_bigimage">
+        <div class="popup__overlay" id="overlay__img"></div>
+        <div class="popup__container-image">
+            <button class="popup__closebutton" type="button">
+                <img class="popup__closebutton-image" alt="закрыть" src="./images/CloseIcon.svg">
+            </button>
+            <div>
+                <img class="popup__bigimage" alt="" src="./images/Dombai1.png">
+            </div>
+            <h2 class="popup__imagetitle"></h2>
+        </div>
+    </div>
+
+
+    <template class="template">
+        <div class="cards__item">
+            <button class="cards__delete" type="button">
+                <img class="cards__delete-image" alt="Удалить" src="./images/Trash.svg">
+            </button>
+
+            <img class="cards__image" alt="Такой картинки нет(" src="./images/Karachaevsk1.png">
+            <div class="cards__header">
+                <h2 class="cards__title"></h2>
+                <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк"
+                        src="./images/like.svg"></button>
+            </div>
+        </div>
+    </template>
+</body>
+
+</html>
