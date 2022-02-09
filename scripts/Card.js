@@ -8,9 +8,9 @@ export default class Card {
 
     }
 
-    _getItem() { 
+    _getItem() {
         return document
-            .querySelector(this._selector)
+            .querySelector(this._selector.selector)
             .content
             .querySelector('.cards__item')
             .cloneNode(true);
@@ -45,7 +45,7 @@ export default class Card {
 
         
         this._cardImage.addEventListener('click', () => {
-            this._handleCard(this._name, this._link, this._alt)
+            this._handleCard()
         });
     }
 }

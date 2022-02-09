@@ -16,7 +16,7 @@ export default class UserInfo {
   
     setUserInfo(newProfileName, newProfileJob) {
       this._name.textContent = newProfileName;
-      this._Job.textContent = newProfileJob;
+      this._job.textContent = newProfileJob;
     }
   };
   

@@ -144,11 +144,12 @@ const renderCard = (item) => {
     const newCard = new Card({
         data: item,
         selector: '.template',
-        handleCardClick: () => popupWithImage.openPopup(item)
+        handleCard: () => popupWithImage.openPopup(item)
     });
-    const initializeCard = newCard.generate();
-    return initializeCard;
+    const initializeCard = newCard.getView();
     cardList.addItem(initializeCard);
+    return initializeCard;
+    
    
 };
 
