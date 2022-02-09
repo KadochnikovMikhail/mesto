@@ -33,6 +33,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
-    "core-js": "^3.21.0"
+    "core-js": "^3.21.0",
+    "generate-js": "^3.1.2"
   }
 }
