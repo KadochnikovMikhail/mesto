@@ -1,16 +1,16 @@
 export default class Card {
-    constructor(selector, name, link, alt, handleCard) {
+    constructor({ data, selector, handleCard }) {
         this._selector = selector;
-        this._name = name;
-        this._link = link;
-        this._alt = alt;
+        this._name = data.name;
+        this._link = data.link;
+        this._alt = data.alt;
         this._handleCard = handleCard;
 
     }
 
     _getItem() {
         return document
-            .querySelector(this._selector.selector)
+            .querySelector(this._selector)
             .content
             .querySelector('.cards__item')
             .cloneNode(true);

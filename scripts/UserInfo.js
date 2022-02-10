@@ -1,10 +1,12 @@
 
 export default class UserInfo {
+    
     constructor({ profileNameSelector, profileJobSelector }) {
       this._name = profileNameSelector;
       this._job = profileJobSelector;
     }
-  
+ 
+
     getUserInfo() {
       const userData = {
         name: this._name.textContent,
