@@ -171,7 +171,7 @@ editButton.addEventListener('click', () => {
     popupWithProfileForm.openPopup();
   });
 
-  profileForm.addEventListener('submit', handleProfileFormSubmit);
+ 
   profileCloseBtn.addEventListener('click', () => popupWithProfileForm.closePopup());
   overlayProfile.addEventListener('click', () => popupWithProfileForm.closePopup());
 
