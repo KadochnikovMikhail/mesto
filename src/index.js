@@ -40,7 +40,6 @@ const profileCloseBtn = document.querySelector('#profile-close');
 const placeCloseBtn = document.querySelector('#mesto-close');
 const imageCloseBtn = document.querySelector('#img-close');
 
-
 const cards = document.querySelector('.cards');
 
 const overlayProfile = document.getElementById('overlay__profile');
@@ -97,7 +96,7 @@ const userInfo = new UserInfo({
 const handleProfileFormSubmit = (formFields) => {
     
     console.log(formFields)
-
+  
     userInfo.setUserInfo(formFields.name, formFields.description);
 
     popupWithProfileForm.closePopup();
@@ -158,7 +157,6 @@ editButton.addEventListener('click', () => {
     popupWithProfileForm.openPopup();
   });
 
- 
   profileCloseBtn.addEventListener('click', () => popupWithProfileForm.closePopup());
   overlayProfile.addEventListener('click', () => popupWithProfileForm.closePopup());
 
@@ -166,7 +164,7 @@ editButton.addEventListener('click', () => {
     popupWithPlaceForm.openPopup();
   });
   
- 
+  placeForm.addEventListener('submit', handlePlaceFormSubmit);
   placeCloseBtn.addEventListener('click', () => popupWithPlaceForm.closePopup());
   overlayCard.addEventListener('click', () => popupWithPlaceForm.closePopup());
   
