@@ -105,20 +105,21 @@ const userInfo = new UserInfo({
     profileJobSelector: job
 });
 
-const handleProfileFormSubmit = () => {
-    const name = nameInput.value;
-    const job = jobInput.value;
-    userInfo.setUserInfo(name, job);
+
+
+const handleProfileFormSubmit = (formFields) => {
+    
+    console.log(formFields)
+
+    userInfo.setUserInfo(formFields.name, formFields.description);
+
     popupWithProfileForm.closePopup();
+     
 };
 
 const popupWithImage = new PopupWithImage(popupImage);
-const popupWithProfileForm = new PopupWithForm(profilePopup, () => {
-    handleProfileFormSubmit;
-});
-const popupWithPlaceForm = new PopupWithForm(popupCards, () => {
-    handlePlaceFormSubmit;
-});
+const popupWithProfileForm = new PopupWithForm(profilePopup, handleProfileFormSubmit);
+const popupWithPlaceForm = new PopupWithForm(popupCards, handlePlaceFormSubmit);
 
 
 const handlePlaceFormSubmit = () => {

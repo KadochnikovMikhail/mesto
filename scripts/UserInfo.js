@@ -3,7 +3,9 @@ export default class UserInfo {
     
     constructor({ profileNameSelector, profileJobSelector }) {
       this._name = profileNameSelector;
+      console.log(this._name)
       this._job = profileJobSelector;
+      console.log(this._job)
     }
  
 
@@ -18,7 +20,11 @@ export default class UserInfo {
   
     setUserInfo(newProfileName, newProfileJob) {
       this._name.textContent = newProfileName;
+      console.log(this._name.textContent)
       this._job.textContent = newProfileJob;
-    }
+      console.log(this._job.textContent)
+      
   };
+    }
+    
   
