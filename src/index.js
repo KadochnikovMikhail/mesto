@@ -36,25 +36,12 @@ const formEdit = document.querySelector('#form-edit');
 
 const addButton = profile.querySelector('.profile__addbutton');
 const editButton = profile.querySelector('.profile__edit-button');
-const buttonSave = document.querySelector('.form__buttonsave_type_save');
-const buttonCreateCard = document.querySelector('.form__buttonsave_type_create')
-const closeBtn = document.querySelector('.cards__delete')
 const profileCloseBtn = document.querySelector('#profile-close');
 const placeCloseBtn = document.querySelector('#mesto-close');
 const imageCloseBtn = document.querySelector('#img-close');
 
-const profileForm = document.querySelector('.popup__container');
 
 const cards = document.querySelector('.cards');
-
-
-const cardFormElement = popupCards.querySelector('.form');
-
-const titleImage = popupImage.querySelector('.popup__imagetitle')
-const imageEL = popupImage.querySelector('.popup__bigimage')
-const popups = document.querySelectorAll('.popup')
-
-
 
 const overlayProfile = document.getElementById('overlay__profile');
 const overlayCard = document.getElementById('overlay__card');
@@ -179,7 +166,7 @@ editButton.addEventListener('click', () => {
     popupWithPlaceForm.openPopup();
   });
   
-  placeForm.addEventListener('submit', handlePlaceFormSubmit);
+ 
   placeCloseBtn.addEventListener('click', () => popupWithPlaceForm.closePopup());
   overlayCard.addEventListener('click', () => popupWithPlaceForm.closePopup());
   
