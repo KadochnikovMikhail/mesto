@@ -1,21 +1,21 @@
-import '../pages/index.css';
-import FormValidator from "../scripts/FormValidator.js";
-import Card from '../scripts/Card.js';
-import Section from "../scripts/Section.js";
-import Popup from "../scripts/Popup.js";
-import PopupWithImage from "../scripts/PopupWithImage.js";
-import PopupWithForm from "../scripts/PopupWithForm.js";
-import UserInfo from "../scripts/UserInfo.js";
+import './pages/index.css'
+import FormValidator from "./scripts/FormValidator";
+import Card from './scripts/Card.js';
+import Section from "./scripts/Section.js";
+import Popup from "./scripts/Popup.js";
+import PopupWithImage from "./scripts/PopupWithImage.js";
+import PopupWithForm from "./scripts/PopupWithForm.js";
+import UserInfo from "./scripts/UserInfo.js";
 
 
-import headerLogo from '../images/logo.svg';
-import profileImage from '../images/avatar.png';
-import editBtn from '../images/addbutton.svg';
-import addBtn from '../images/editbutton.svg';
-import closeButton from '../images/CloseIcon.svg';
-import cardsDelete from '../images/Trash.svg';
-import like from '../images/like.svg';
-import actLike from '../images/activelike.svg';
+import headerLogo from './images/logo.svg';
+import profileImage from './images/avatar.png';
+import editBtn from './images/addbutton.svg';
+import addBtn from './images/editbutton.svg';
+import closeButton from './images/CloseIcon.svg';
+import cardsDelete from './images/Trash.svg';
+import like from './images/like.svg';
+import actLike from './images/activelike.svg';
 
 
 const popupImage = document.querySelector('.popup_type_bigimage');
@@ -95,7 +95,7 @@ const userInfo = new UserInfo({
 
 const handleProfileFormSubmit = (formFields) => {
     
-    console.log(formFields)
+    
   
     userInfo.setUserInfo(formFields.name, formFields.description);
 
