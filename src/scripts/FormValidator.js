@@ -78,5 +78,9 @@ export default class FormValidator {
         this._setInputListners();
       }
 
+    deactivateButton() {
+        this._buttonElement.classList.add(this._inactiveButtonClass)
+    }
+
 }
 

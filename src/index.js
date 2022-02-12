@@ -6,6 +6,7 @@ import Popup from "./scripts/Popup.js";
 import PopupWithImage from "./scripts/PopupWithImage.js";
 import PopupWithForm from "./scripts/PopupWithForm.js";
 import UserInfo from "./scripts/UserInfo.js";
+import { initialCards } from './utils/initialCards.js';
 
 
 import headerLogo from './images/logo.svg';
@@ -36,42 +37,10 @@ const formEdit = document.querySelector('#form-edit');
 
 const addButton = profile.querySelector('.profile__addbutton');
 const editButton = profile.querySelector('.profile__edit-button');
-const profileCloseBtn = document.querySelector('#profile-close');
-const placeCloseBtn = document.querySelector('#mesto-close');
-const imageCloseBtn = document.querySelector('#img-close');
 
 const cards = document.querySelector('.cards');
 
-const overlayProfile = document.getElementById('overlay__profile');
-const overlayCard = document.getElementById('overlay__card');
-const overlayImg = document.getElementById('overlay__img');
 
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
 
 const enableValidation = {
     inputSelector: '.form__data',
@@ -112,19 +81,16 @@ const handlePlaceFormSubmit = () => {
     const newPlace = titleInput.value;
     const newImage = linkInput.value;
 
-    const addedCard = new Section({
-        items: [{
+    const addedCard = renderCard({
             name: newPlace,
-            link: newImage
-        }],
-        renderer: renderCard,
-    },
-        cards
-    );
+            link: newImage,
+            alt: newPlace
+        });
 
-    addedCard.renderItems();
+    cardList.addItem(addedCard);
     popupWithPlaceForm.closePopup();
-    popupWithPlaceForm.removeEventListener();
+    addCardFormValidator.deactivateButton()
+    
 };
 
 const renderCard = (item) => {
@@ -135,7 +101,7 @@ const renderCard = (item) => {
     });
     const initializeCard = newCard.getView();
     cardList.addItem(initializeCard);
-    return initializeCard;
+    return initializeCard; ; // return нужен, иначе ломается все https://files.slack.com/files-pri/TPV9DP0N4-F032RACEVEZ/image.png
     
    
 };
@@ -157,17 +123,14 @@ editButton.addEventListener('click', () => {
     popupWithProfileForm.openPopup();
   });
 
-  profileCloseBtn.addEventListener('click', () => popupWithProfileForm.closePopup());
-  overlayProfile.addEventListener('click', () => popupWithProfileForm.closePopup());
+  popupWithProfileForm.setEventListeners();
 
   addButton.addEventListener('click', () => {
     popupWithPlaceForm.openPopup();
   });
   
   placeForm.addEventListener('submit', handlePlaceFormSubmit);
-  placeCloseBtn.addEventListener('click', () => popupWithPlaceForm.closePopup());
-  overlayCard.addEventListener('click', () => popupWithPlaceForm.closePopup());
+  popupWithPlaceForm.setEventListeners();
   
+  popupWithImage.setEventListeners();
 
-  imageCloseBtn.addEventListener('click', () => popupWithImage.closePopup());
-  overlayImg.addEventListener('click', () => popupWithImage.closePopup());

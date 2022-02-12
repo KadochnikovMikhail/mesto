@@ -1,30 +1,33 @@
 export default class Popup {
-    constructor(selector) {
-      this._selector = selector;
+  constructor(selector) {
+    this._selector = selector;
+  }
+
+
+  openPopup() {
+    this._selector.classList.add('popup_opened');
+    document.addEventListener('keydown', this._handleEscClose);
+  }
+
+  closePopup() {
+    this._selector.classList.remove('popup_opened');
+    document.removeEventListener('keydown', this._handleEscClose);
+  }
+
+  _handleEscClose = (evt) => {
+    if (evt.key === 'Escape') {
+      this.closePopup();
     }
-  
-    openPopup() {
-      this._selector.classList.add('popup_opened');
-      this.setEventListener();
-    }
-  
-    closePopup() {
-      this._selector.classList.remove('popup_opened');
-      this.removeEventListener();
-    }
-  
-    _handleEscClose = (evt) => {
-      if (evt.key === 'Escape') {
+  }
+
+  setEventListeners() {
+    this._selector.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup__overlay')) {
         this.closePopup();
       }
-    }
-  
-    setEventListener() {
-      document.addEventListener('keydown', this._handleEscClose);
-    }
-  
-    removeEventListener() {
-      document.removeEventListener('keydown', this._handleEscClose);
-    }
-  };
-  
+      if (evt.target.classList.contains('popup__closebutton-image')) {
+        this.closePopup();
+      }
+    });
+  }
+};
