@@ -3,7 +3,6 @@ export default class Card {
         this._selector = selector;
         this._name = data.name;
         this._link = data.link;
-        this._alt = data.alt;
         this._handleCard = handleCard;
 
     }
@@ -29,8 +28,7 @@ export default class Card {
         this._cardImage = this._element.querySelector('.cards__image');
         this._element.querySelector('.cards__title').textContent = this._name; 
         this._cardImage.src = this._link; 
-        this._cardImage.alt = this._alt; 
-
+        this._cardImage.alt = this._name; 
         this._setEventListeners();
 
         return this._element

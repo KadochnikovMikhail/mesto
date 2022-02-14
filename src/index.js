@@ -84,7 +84,6 @@ const handlePlaceFormSubmit = () => {
     const addedCard = renderCard({
             name: newPlace,
             link: newImage,
-            alt: newPlace
         });
 
     cardList.addItem(addedCard);
@@ -100,9 +99,8 @@ const renderCard = (item) => {
         handleCard: () => popupWithImage.openPopup(item)
     });
     const initializeCard = newCard.getView();
-    cardList.addItem(initializeCard);
-    return initializeCard; ; // return нужен, иначе ломается все https://files.slack.com/files-pri/TPV9DP0N4-F032RACEVEZ/image.png
-    
+
+    return initializeCard; 
    
 };
 
