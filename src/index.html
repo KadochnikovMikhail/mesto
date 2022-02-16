@@ -15,7 +15,11 @@
         </header>
         <main class="main">
             <section class="profile">
-                <img class="profile__image" alt="Фото профиля" src="<%=require('./images/avatar.png')%>">
+                <div class="profile__avatar-container">
+                    <img class="profile__image" alt="Фото профиля" src="<%=require('./images/avatar.png')%>">
+                    <div class="profile__overlay"></div>
+                </div>
+                
                 <div class="profile__info">
                     <div class="profile__header">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -54,7 +58,7 @@
                 <input class="form__data" id="job" type="text" name="description" placeholder="О себе" required
                     minlength="2" maxlength="200">
                 <span id="job-error" class="error"></span>
-                <button class="form__buttonsave form__buttonsave_type_save" type="submit">
+                <button class="form__buttonsave form__buttonsave_type_save" id="profile-button" type="submit">
                     <span>Сохранить</span>
                 </button>
             </form>
@@ -77,7 +81,7 @@
                 <input class="form__data" id="link" type="url" name="description" placeholder="Ссылка на картинку"
                     required>
                 <span id="link-error" class="error"></span>
-                <button class="form__buttonsave form__buttonsave_type_create" type="submit">
+                <button class="form__buttonsave form__buttonsave_type_create" id ="place-button"type="submit">
                     <span >Создать</span>
                 </button>
             </form>
@@ -97,6 +101,44 @@
         </div>
     </div>
 
+    <div class="popup popup_type_confirm">
+        <div class="popup__overlay" id="overlay__confirm"></div>
+        <div class="popup__container ">
+            <button class="popup__closebutton" id = "confirm-close" type="button">
+                <img class="popup__closebutton-image" alt="закрыть" src="<%=require('./images/CloseIcon.svg')%>">
+            </button>
+            <form class="form" id = "form-confirm" name="confirm-form">
+                <div class="form__header">
+                    <h2 class="form__title">Вы уверены?</h2>
+                </div>
+                <button class="form__buttonsave form__buttonsave_type_confirm" type="submit">
+                    <span >Да</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_type_avatar">
+        <div class="popup__overlay" id="overlay__avatar"></div>
+        <div class="popup__container ">
+            <button class="popup__closebutton" id = "avatar-close" type="button">
+                <img class="popup__closebutton-image" alt="закрыть" src="<%=require('./images/CloseIcon.svg')%>">
+            </button>
+            <form class="form" id = "form-avatar" name="avatarform">
+                <div class="form__header">
+                    <h2 class="form__title">Обновить аватар</h2>
+                </div>
+                <input class="form__data" id="avatar" type="url" name="avatar" placeholder="Ссылка на фото" required minlength="2"
+                maxlength="30">
+                <span id="title-error" class="error"></span>
+                
+                <button class="form__buttonsave form__buttonsave_type_create" id="avatar-button" type="submit">
+                    <span >Сохранить</span>
+                </button>
+            </form>
+        </div>
+    </div>
+
 
     <template class="template">
         <div class="cards__item">
@@ -107,8 +149,10 @@
             <img class="cards__image" alt="Такой картинки нет(" src="./images/Karachaevsk1.png">
             <div class="cards__header">
                 <h2 class="cards__title"></h2>
-                <button class="cards__like" type="button"><img class="cards__like-image" alt="Лайк"
-                        src="<%=require('./images/like.svg')%>"></button>
+                <div class="cards__like">
+                    <button class="cards__like-btn" type="button"><img class="cards__like-image" alt="Лайк" src="<%=require('./images/like.svg')%>"></button>
+                    <p class="cards__like-counter">0</p>
+                </div>
             </div>
         </div>
     </template>
