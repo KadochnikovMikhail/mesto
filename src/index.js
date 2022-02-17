@@ -208,19 +208,6 @@ const handleConfirmRemoval = (item) => {
         })
 };
 
-Promise.all([getServerUserInfo, getServerInitialCards])
-    .then(([ServerUserInfo, ServerInitialCards]) => {
-        userInfo.setUserInfo({
-            newProfileName: ServerUserInfo.name,
-            newProfileJob: ServerUserInfo.about,
-            newProfileAvatar: ServerUserInfo.avatar
-        });
-        userInfo.setId(ServerUserInfo._id);
-        cardList.renderItems(ServerInitialCards);
-    })
-    .catch((error) => {
-        console.log(`Ошибка загрузки данных с сервера ${error}`);
-    });
 
 const likeCard = (card) => {
     if (!card.getIsLike()) {
@@ -272,3 +259,17 @@ avatarButton.addEventListener('click', () => {
 });
 
 popupWithAvatarForm.setEventListeners();
+
+Promise.all([getServerUserInfo, getServerInitialCards])
+    .then(([ServerUserInfo, ServerInitialCards]) => {
+        userInfo.setUserInfo({
+            newProfileName: ServerUserInfo.name,
+            newProfileJob: ServerUserInfo.about,
+            newProfileAvatar: ServerUserInfo.avatar
+        });
+        userInfo.setId(ServerUserInfo._id);
+        cardList.renderItems(ServerInitialCards);
+    })
+    .catch((error) => {
+        console.log(`Ошибка загрузки данных с сервера ${error}`);
+    });
