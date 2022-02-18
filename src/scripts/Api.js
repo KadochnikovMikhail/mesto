@@ -10,14 +10,16 @@ export class Api {
             : Promise.reject(`Ошибка ${response.status}`)
     }
 
-    getUserInfo() {
-        return fetch(`${this._address}/users/me`, {
-            headers: this._headers
-        }).then((response) => this._handleResponse(response))
-    }
+   
 
     getInitialCards() {
         return fetch(`${this._address}/cards`, {
+            headers: this._headers
+        }).then((response) => this._handleResponse(response))
+    }
+    
+    getUserInfo() {
+        return fetch(`${this._address}/users/me`, {
             headers: this._headers
         }).then((response) => this._handleResponse(response))
     }

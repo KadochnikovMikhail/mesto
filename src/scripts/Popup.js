@@ -20,7 +20,7 @@ export class Popup {
     }
   }
 
-  setEventListeners() {
+  setEventListener() {
     this._selector.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup__overlay')) {
         this.closePopup();

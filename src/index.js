@@ -1,13 +1,13 @@
 import './pages/index.css'
-import {FormValidator} from "./scripts/FormValidator";
-import {Card} from './scripts/Card.js';
-import {Section} from "./scripts/Section.js";
-import {Popup} from "./scripts/Popup.js";
-import {PopupWithImage} from "./scripts/PopupWithImage.js";
-import {PopupWithForm} from "./scripts/PopupWithForm.js";
-import {UserInfo} from "./scripts/UserInfo.js";
-import {PopupWithConfirmation} from "./scripts/PopupWithConfirmation.js";
-import  {Api} from './scripts/Api.js';
+import { FormValidator } from "./scripts/FormValidator";
+import { Card } from './scripts/Card.js';
+import { Section } from "./scripts/Section.js";
+import { Popup } from "./scripts/Popup.js";
+import { PopupWithImage } from "./scripts/PopupWithImage.js";
+import { PopupWithForm } from "./scripts/PopupWithForm.js";
+import { UserInfo } from "./scripts/UserInfo.js";
+import { PopupWithConfirmation } from "./scripts/PopupWithConfirmation.js";
+import { Api } from './scripts/Api.js';
 import { initialCards } from './utils/initialCards.js';
 
 
@@ -60,6 +60,14 @@ const enableValidation = {
     errorClass: 'popup__error_visible'
 };
 
+const addCardFormValidator = new FormValidator(enableValidation, placeForm);
+const editProfileFormValidator = new FormValidator(enableValidation, formEdit);
+const updateAvatarFormValidator = new FormValidator(enableValidation, avatarForm);
+
+addCardFormValidator.enableValidation();
+editProfileFormValidator.enableValidation();
+updateAvatarFormValidator.enableValidation();
+
 const api = new Api({
     address: 'https://mesto.nomoreparties.co/v1/cohort-35',
     headers: {
@@ -86,13 +94,7 @@ const getServerInitialCards = api.getInitialCards()
 
 
 
-const addCardFormValidator = new FormValidator(enableValidation, placeForm);
-const editProfileFormValidator = new FormValidator(enableValidation, formEdit);
-const updateAvatarFormValidator = new FormValidator(enableValidation, avatarForm);
 
-addCardFormValidator.enableValidation();
-editProfileFormValidator.enableValidation();
-updateAvatarFormValidator.enableValidation();
 
 const userInfo = new UserInfo({
     profileNameSelector: nameProfile,
@@ -122,11 +124,7 @@ const handleProfileFormSubmit = (newProfileData) => {
         });
 };
 
-const popupWithImage = new PopupWithImage(popupImage);
-const popupWithProfileForm = new PopupWithForm(profilePopup, handleProfileFormSubmit);
-const popupWithPlaceForm = new PopupWithForm(popupCards, handlePlaceFormSubmit);
-const popupWithAvatarForm = new PopupWithForm(avatarPopup, handleAvatarFormSubmit);
-const popupWithConfirmation = new PopupWithConfirmation(confirmPopup, handleConfirmRemoval);
+
 
 
 
@@ -167,7 +165,7 @@ const renderCard = (item) => {
             likeCard(item);
         }
     });
-    return newCard.generate();
+    return newCard.generateCard();
 };
 
 
@@ -186,14 +184,14 @@ const handleAvatarFormSubmit = (newAvatar) => {
                 newProfileJob: response.about,
                 newProfileAvatar: response.avatar
             });
-            avatarButton.textContent = 'Сохранение...';
+            avatarButtonSave.textContent = 'Сохранение...';
             popupWithAvatarForm.closePopup();
         })
         .catch((error) => {
             console.log(`Ошибка обновления аватара ${error}`);
         })
         .finally(() => {
-            avatarButton.textContent = 'Сохранить';
+            avatarButtonSave.textContent = 'Сохранить';
         });
 };
 
@@ -207,6 +205,12 @@ const handleConfirmRemoval = (item) => {
             console.log(`Ошибка удаления карточки ${error}`);
         })
 };
+
+const popupWithImage = new PopupWithImage(popupImage);
+const popupWithProfileForm = new PopupWithForm(profilePopup, handleProfileFormSubmit);
+const popupWithPlaceForm = new PopupWithForm(popupCards, handlePlaceFormSubmit);
+const popupWithAvatarForm = new PopupWithForm(avatarPopup, handleAvatarFormSubmit);
+const popupWithConfirmation = new PopupWithConfirmation(confirmPopup, handleConfirmRemoval);
 
 
 const likeCard = (card) => {
@@ -239,26 +243,26 @@ editButton.addEventListener('click', () => {
     jobInput.value = updatedUserInfo.job;
     editProfileFormValidator.toggleButtonError();
     popupWithProfileForm.openPopup();
-  });
+});
 
 
-popupWithProfileForm.setEventListeners();
+popupWithProfileForm.setEventListener();
 
 addButton.addEventListener('click', () => {
     popupWithPlaceForm.openPopup();
     addCardFormValidator.toggleButtonError();
 });
 
-popupWithPlaceForm.setEventListeners();
+popupWithPlaceForm.setEventListener();
 
-popupWithImage.setEventListeners();
+popupWithImage.setEventListener();
 
 avatarButton.addEventListener('click', () => {
     updateAvatarFormValidator.toggleButtonError();
     popupWithAvatarForm.openPopup();
 });
 
-popupWithAvatarForm.setEventListeners();
+popupWithAvatarForm.setEventListener();
 
 Promise.all([getServerUserInfo, getServerInitialCards])
     .then(([ServerUserInfo, ServerInitialCards]) => {

@@ -5,10 +5,11 @@ export  class Section {
       this._selector = selector;
     }
   
-    renderItems() {
-      this._items.forEach((item) => this.addItem(this._renderer(item)))
+    renderItems(items) {
+      items.forEach((item) => this.addItem(this._renderer(item)))
     }
-  
+    
+
     addItem(element) {
       this._selector.prepend(element);
     }
