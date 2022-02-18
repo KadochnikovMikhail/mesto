@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
-   
+
 </head>
 
 <body class="page">
@@ -19,12 +19,13 @@
                     <img class="profile__image" alt="Фото профиля" src="<%=require('./images/avatar.png')%>">
                     <div class="profile__overlay"></div>
                 </div>
-                
+
                 <div class="profile__info">
                     <div class="profile__header">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
                         <button class="profile__edit-button" type="button">
-                            <img class="profile__edit-button-image" alt="Редактировать" src="<%=require('./images/editbutton.svg')%>">
+                            <img class="profile__edit-button-image" alt="Редактировать"
+                                src="<%=require('./images/editbutton.svg')%>">
                         </button>
                     </div>
 
@@ -35,7 +36,7 @@
 
             </section>
             <section class="cards">
-                
+
             </section>
         </main>
         <footer class="footer">
@@ -45,10 +46,10 @@
     <div class="popup popup_type_user-info">
         <div class="popup__overlay" id="overlay__profile"></div>
         <div class="popup__container">
-            <button class="popup__closebutton" id = "profile-close" type="button">
+            <button class="popup__closebutton" id="profile-close" type="button">
                 <img class="popup__closebutton-image" alt="закрыть" src="<%=require('./images/CloseIcon.svg')%>">
             </button>
-            <form class="form" id = "form-edit" name="profileform">
+            <form class="form" id="form-edit" name="profileform">
                 <div class="form__header">
                     <h2 class="form__title">Редактировать профиль</h2>
                 </div>
@@ -68,21 +69,21 @@
     <div class="popup popup_type_new-card">
         <div class="popup__overlay" id="overlay__card"></div>
         <div class="popup__container ">
-            <button class="popup__closebutton" id = "mesto-close" type="button">
+            <button class="popup__closebutton" id="mesto-close" type="button">
                 <img class="popup__closebutton-image" alt="закрыть" src="<%=require('./images/CloseIcon.svg')%>">
             </button>
-            <form class="form" id = "form-add" name="addform">
+            <form class="form" id="form-add" name="addform">
                 <div class="form__header">
                     <h2 class="form__title">Новое место</h2>
                 </div>
-                <input class="form__data" id="title" type="text" name="name" placeholder="Название" required minlength="2"
-                maxlength="30">
+                <input class="form__data" id="title" type="text" name="name" placeholder="Название" required
+                    minlength="2" maxlength="30">
                 <span id="title-error" class="error"></span>
                 <input class="form__data" id="link" type="url" name="description" placeholder="Ссылка на картинку"
                     required>
                 <span id="link-error" class="error"></span>
-                <button class="form__buttonsave form__buttonsave_type_create" id ="place-button"type="submit">
-                    <span >Создать</span>
+                <button class="form__buttonsave form__buttonsave_type_create" id="place-button" type="submit">
+                    <span>Создать</span>
                 </button>
             </form>
         </div>
@@ -91,7 +92,7 @@
     <div class="popup popup_type_bigimage">
         <div class="popup__overlay" id="overlay__img"></div>
         <div class="popup__container-image">
-            <button class="popup__closebutton"  id = "img-close" type="button">
+            <button class="popup__closebutton" id="img-close" type="button">
                 <img class="popup__closebutton-image" alt="закрыть" src="<%=require('./images/CloseIcon.svg')%>">
             </button>
             <div>
@@ -104,15 +105,15 @@
     <div class="popup popup_type_confirm">
         <div class="popup__overlay" id="overlay__confirm"></div>
         <div class="popup__container ">
-            <button class="popup__closebutton" id = "confirm-close" type="button">
+            <button class="popup__closebutton" id="confirm-close" type="button">
                 <img class="popup__closebutton-image" alt="закрыть" src="<%=require('./images/CloseIcon.svg')%>">
             </button>
-            <form class="form" id = "form-confirm" name="confirm-form">
+            <form class="form" id="form-confirm" name="confirm-form">
                 <div class="form__header">
                     <h2 class="form__title">Вы уверены?</h2>
                 </div>
                 <button class="form__buttonsave form__buttonsave_type_confirm" type="submit">
-                    <span >Да</span>
+                    <span>Да</span>
                 </button>
             </form>
         </div>
@@ -121,19 +122,19 @@
     <div class="popup popup_type_avatar">
         <div class="popup__overlay" id="overlay__avatar"></div>
         <div class="popup__container ">
-            <button class="popup__closebutton" id = "avatar-close" type="button">
+            <button class="popup__closebutton" id="avatar-close" type="button">
                 <img class="popup__closebutton-image" alt="закрыть" src="<%=require('./images/CloseIcon.svg')%>">
             </button>
-            <form class="form" id = "form-avatar" name="avatarform">
+            <form class="form" id="form-avatar" name="avatarform">
                 <div class="form__header">
                     <h2 class="form__title">Обновить аватар</h2>
                 </div>
-                <input class="form__data" id="avatar" type="url" name="avatar" placeholder="Ссылка на фото" required minlength="2"
-                >
+                <input class="form__data" id="avatar" type="url" name="avatar" placeholder="Ссылка на фото" required
+                    minlength="2">
                 <span id="avatar-error" class="error"></span>
-                
+
                 <button class="form__buttonsave form__buttonsave_type_create" id="avatar-button" type="submit">
-                    <span >Сохранить</span>
+                    <span>Сохранить</span>
                 </button>
             </form>
         </div>
@@ -150,7 +151,8 @@
             <div class="cards__header">
                 <h2 class="cards__title"></h2>
                 <div class="cards__like">
-                    <button class="cards__like-btn" type="button"><img class="cards__like-image" alt="Лайк" src="<%=require('./images/like.svg')%>"></button>
+                    <button class="cards__like-btn" type="button"><img class="cards__like-image" alt="Лайк"
+                            src="<%=require('./images/like.svg')%>"></button>
                     <p class="cards__like-counter">0</p>
                 </div>
             </div>
