@@ -30,8 +30,9 @@ export class Api {
             headers: this._headers,
             body: JSON.stringify({
                 name: userData.name,
-                about: userData.job
+                about: userData.about
             })
+            
         }).then((response) => this._handleResponse(response))
     }
 

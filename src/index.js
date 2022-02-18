@@ -78,6 +78,7 @@ const api = new Api({
 
 const getServerUserInfo = api.getUserInfo()
     .then((ServerUserInfo) => {
+
         return ServerUserInfo
     })
     .catch((error) => {
@@ -113,6 +114,7 @@ const handleProfileFormSubmit = (newProfileData) => {
                 newProfileJob: response.about,
                 newProfileAvatar: response.avatar
             });
+            
             profileButton.textContent = 'Сохранение...';
             popupWithProfileForm.closePopup();
         })
@@ -122,6 +124,7 @@ const handleProfileFormSubmit = (newProfileData) => {
         .finally(() => {
             profileButton.textContent = 'Сохранить';
         });
+        
 };
 
 
@@ -184,6 +187,7 @@ const handleAvatarFormSubmit = (newAvatar) => {
                 newProfileJob: response.about,
                 newProfileAvatar: response.avatar
             });
+
             avatarButtonSave.textContent = 'Сохранение...';
             popupWithAvatarForm.closePopup();
         })
@@ -239,6 +243,7 @@ const removeCardWindow = (item) => {
 
 editButton.addEventListener('click', () => {
     const updatedUserInfo = userInfo.getUserInfo();
+    
     nameInput.value = updatedUserInfo.name;
     jobInput.value = updatedUserInfo.job;
     editProfileFormValidator.toggleButtonError();
