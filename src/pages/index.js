@@ -94,6 +94,7 @@ const userInfo = new UserInfo({
 
 
 const handleProfileFormSubmit = (newProfileData) => {
+    profileButton.textContent = 'Сохранение...'
     api.editProfile(newProfileData)
         .then((response) => {
 
@@ -102,29 +103,33 @@ const handleProfileFormSubmit = (newProfileData) => {
                 newProfileJob: response.about,
                 newProfileAvatar: response.avatar
             })
-
-            profileButton.textContent = 'Сохранение...'
+            console.log(profileButton.textContent)
+            
+            console.log(profileButton.textContent)
             popupWithProfileForm.closePopup()
+            
             
         })
         .catch((error) => {
             console.log(`Ошибка редактирования профиля ${error}`)
         })
         .finally(() => {
+            console.log(profileButton.textContent)
             profileButton.textContent = 'Сохранить'
+            console.log(profileButton.textContent)
         })
 
 }
 
 
 const handlePlaceFormSubmit = (newCardData) => {
-
+    placeButton.textContent = 'Создание...'
     api.addCard(newCardData)
         .then((response) => {
 
             const addedCard = renderCard(response)
 
-            placeButton.textContent = 'Создание...'
+            
 
             cardList.addItem(addedCard)
 
@@ -173,6 +178,7 @@ const cardList = new Section({
 
 
 const handleAvatarFormSubmit = (newAvatar) => {
+    avatarButtonSave.textContent = 'Сохранение...'
     api.updateAvatar(newAvatar)
         .then((response) => {
 
@@ -182,7 +188,7 @@ const handleAvatarFormSubmit = (newAvatar) => {
                 newProfileAvatar: response.avatar
             })
 
-            avatarButtonSave.textContent = 'Сохранение...'
+            
             popupWithAvatarForm.closePopup()
         })
         .catch((error) => {

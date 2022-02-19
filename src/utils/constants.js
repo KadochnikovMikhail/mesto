@@ -23,7 +23,7 @@ const addButton = profile.querySelector('.profile__addbutton')
 const editButton = profile.querySelector('.profile__edit-button')
 const avatarButton = document.querySelector('.profile__overlay')
 
-const profileButton = document.querySelector('#profile-button')
+const profileButton = document.querySelector('.form__buttonsave_type_save')
 const placeButton = document.querySelector('#place-button')
 const avatarButtonSave = document.querySelector('#avatar-button')
 
