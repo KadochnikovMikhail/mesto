@@ -7,12 +7,12 @@ export class PopupWithForm extends Popup {
     super(selector)
     this._submit = submitForm
     this._form = this._selector.querySelector('.form')
+    this._inputList = Array.from(this._form.querySelectorAll('.form__data'))
   }
 
 
   _getInputValues() {
 
-    this._inputList = Array.from(this._form.querySelectorAll('.form__data'))
     this._formValues = {}
     this._inputList.forEach((input) => {
 
@@ -38,7 +38,7 @@ export class PopupWithForm extends Popup {
   }
 
   closePopup() {
-
+    
     this._form.reset()
     super.closePopup()
   }
